@@ -5,7 +5,7 @@ const AppConnection = () => {
   // JSX
   return (
     <React.Fragment>
-      AppConnection
+      AppConnection Hello
       <Button variant="destructive" >Hello Boii </Button>
     </React.Fragment>
   )
