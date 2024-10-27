@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/aconnection/aappconnection/index.tsx","./src/aconnection/bshadcnconnection/components/ui/button.tsx","./src/aconnection/bshadcnconnection/lib/utils.ts","./src/aconnection/capiconnection/index.ts","./src/aconnection/dreduxconnection/index.ts","./src/aconnection/ebrandconnection/index.ts"],"version":"5.6.3"}
