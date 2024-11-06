@@ -42,7 +42,7 @@ const AppConnection = () => {
   return (
     <React.Fragment>
       {/* AppConnection */}
-      <Helmet><title>Kisna - Admin</title></Helmet>
+      <Helmet><title>Inventech - Admin</title></Helmet>
       <Toaster />
 
       <Suspense fallback={<div className='min-h-screen flex justify-center items-center' >Suspence Loading...</div>} >
