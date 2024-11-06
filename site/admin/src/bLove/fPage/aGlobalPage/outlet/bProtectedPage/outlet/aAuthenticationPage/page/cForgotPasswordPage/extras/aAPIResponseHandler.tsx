@@ -11,6 +11,7 @@ const apiResponseHandler = {
       } });
 
       console.log(serverResponse)
+      console.log(Redux)
 
       if (serverResponse.error && serverResponse.error.originalStatus === 404) {
         return toast({

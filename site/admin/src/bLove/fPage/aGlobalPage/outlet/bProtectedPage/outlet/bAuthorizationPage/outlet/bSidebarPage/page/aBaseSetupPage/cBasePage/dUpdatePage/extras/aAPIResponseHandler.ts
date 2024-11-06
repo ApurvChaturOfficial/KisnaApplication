@@ -76,7 +76,7 @@ const apiResponseHandler = {
         })
         form.reset();
 
-        return navigate(fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.dBaseRoute.aListRoute)
+        return navigate(fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute)
       }
 
       return;
