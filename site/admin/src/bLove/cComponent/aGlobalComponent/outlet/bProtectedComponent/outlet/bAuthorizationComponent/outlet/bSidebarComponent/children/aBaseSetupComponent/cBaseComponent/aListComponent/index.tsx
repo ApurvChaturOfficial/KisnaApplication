@@ -1,47 +1,47 @@
 import React, { useEffect } from "react"
 
-import { Link } from 'react-router-dom'
-import {
-  DeleteIcon,
-  Edit3,
-  Eye,
-  MoreHorizontal,
-  PlusCircle,
-} from "lucide-react"
+// import { Link } from 'react-router-dom'
+// import {
+//   DeleteIcon,
+//   Edit3,
+//   Eye,
+//   MoreHorizontal,
+//   PlusCircle,
+// } from "lucide-react"
 
-import { Badge } from "@/aConnection/bShadcnConnection/components/ui/badge"
-import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
-import {
-  Card,
-  CardContent,
+// import { Badge } from "@/aConnection/bShadcnConnection/components/ui/badge"
+// import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
+// import {
+//   Card,
+//   CardContent,
   // CardDescription,
   // CardFooter,
   // CardHeader,
   // CardTitle,
-} from "@/aConnection/bShadcnConnection/components/ui/card"
-import {
-  DropdownMenu,
+// } from "@/aConnection/bShadcnConnection/components/ui/card"
+// import {
+  // DropdownMenu,
   // DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/aConnection/bShadcnConnection/components/ui/dropdown-menu"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/aConnection/bShadcnConnection/components/ui/table"
-import {
-  Tabs,
-  TabsContent,
-  // TabsList,
-  // TabsTrigger,
-} from "@/aConnection/bShadcnConnection/components/ui/tabs"
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuLabel,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from "@/aConnection/bShadcnConnection/components/ui/dropdown-menu"
+// import {
+//   Table,
+//   TableBody,
+//   TableCell,
+//   TableHead,
+//   TableHeader,
+//   TableRow,
+// } from "@/aConnection/bShadcnConnection/components/ui/table"
+// import {
+//   Tabs,
+//   TabsContent,
+//   // TabsList,
+//   // TabsTrigger,
+// } from "@/aConnection/bShadcnConnection/components/ui/tabs"
 import { 
   // Pagination, 
   // PaginationContent, 
@@ -57,10 +57,10 @@ import {
 // import Bride03 from '@/bLove/hAsset/Bride_01.jpg'
 // import Bride04 from '@/bLove/hAsset/Bride_02.jpg'
 // import Bride05 from '@/bLove/hAsset/Bride_01.jpg'
-import { ReloadIcon } from "@radix-ui/react-icons"
-import fullRoute from "@/bLove/gRoute/bFullRoute"
-import truncateTextUtility from "@/bLove/dUtility/bTruncateTextUtility"
-import PersonalInfoBlockBlockComponent from "@/bLove/cComponent/aGlobalComponent/component/bPersonalInfoBlockComponent"
+// import { ReloadIcon } from "@radix-ui/react-icons"
+// import fullRoute from "@/bLove/gRoute/bFullRoute"
+// import truncateTextUtility from "@/bLove/dUtility/bTruncateTextUtility"
+// import PersonalInfoBlockBlockComponent from "@/bLove/cComponent/aGlobalComponent/component/bPersonalInfoBlockComponent"
 import TypicalListComponent from "../../../../component/aTypicalListComponent"
 // import UserNavComponent from "../../../../component/aUserNavComponent"
 // import { DataTable } from "../../../../component/bDataTableComponent"

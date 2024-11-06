@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import {
   Baseline,
   CircleUser,
-  Gem,
   GemIcon,
   Home,
   IceCream2Icon,
@@ -14,7 +13,6 @@ import {
   Search,
   Settings,
   ShoppingCart,
-  Squirrel,
   Timer,
   Users2,
 } from "lucide-react"
@@ -89,10 +87,10 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link 
-                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute} 
+                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute} 
                     className={cn(
                       "flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8",
-                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute && "bg-accent text-accent-foreground "
+                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute && "bg-accent text-accent-foreground "
                     )} 
                   >
                     <ShoppingCart className="h-5 w-5" />
@@ -105,10 +103,10 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link 
-                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.fProductManagementRoute.aProductRoute.aListRoute} 
+                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute} 
                     className={cn(
                       "flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8",
-                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.fProductManagementRoute.aProductRoute.aListRoute && "bg-accent text-accent-foreground "
+                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute && "bg-accent text-accent-foreground "
                     )} 
                   >
                     <IceCream2Icon className="h-5 w-5" />
@@ -153,10 +151,10 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link 
-                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.dUserAdminiatrationRoute.aMenuRoute.aListRoute} 
+                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute} 
                     className={cn(
                       "flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8",
-                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.dUserAdministrationRoute.aMenuRoute.aListRoute && "bg-accent text-accent-foreground "
+                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute && "bg-accent text-accent-foreground "
                     )} 
                   >
                     <Rabbit className="h-5 w-5" />
@@ -169,10 +167,10 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link 
-                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.bBaseManyToOneRoute.aListRoute} 
+                    to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute} 
                     className={cn(
                       "flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8",
-                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.bBaseManyToOneRoute.aListRoute && "bg-accent text-accent-foreground "
+                      pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute && "bg-accent text-accent-foreground "
                     )} 
                   >
                     <Baseline className="h-5 w-5" />
@@ -185,7 +183,7 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
             <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.aSettingRoute} className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8" >
+                  <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute} className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8" >
                     <Settings className="h-5 w-5" />
                     <span className="sr-only">Settings</span>
                   </Link>
@@ -222,18 +220,18 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                       Dashboard
                     </Link>
                     <Link
-                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute}
+                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                       className={cn("flex items-center gap-4 px-2.5", 
-                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                       ) }
                     >
                       <ShoppingCart className="h-5 w-5" />
                       Orders
                     </Link>
                     <Link
-                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bProductRoute.aListRoute}
+                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                       className={cn("flex items-center gap-4 px-2.5", 
-                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bProductRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                       ) }
                     >
                       <Package className="h-5 w-5" />
@@ -249,9 +247,9 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                       Counter
                     </Link>
                     <Link
-                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.bBaseManyToOneRoute.aListRoute}
+                      to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                       className={cn("flex items-center gap-4 px-2.5", 
-                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.bBaseManyToOneRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                        pathname.substring(1) === endpointRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                       ) }
                     >
                       <Baseline className="h-5 w-5" />

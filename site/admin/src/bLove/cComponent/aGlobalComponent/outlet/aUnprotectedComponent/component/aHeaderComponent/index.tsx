@@ -58,19 +58,19 @@ const HeaderComponent = () => {
             Dashbasdsadoard
           </Link>
           <Link
-            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute}
+            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Orders
           </Link>
           <Link
-            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bProductRoute.aListRoute}
+            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Products
           </Link>
           <Link
-            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.dUserAdminiatrationRoute.cUserRoute.aListRoute}
+            to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             User Administration
@@ -109,19 +109,19 @@ const HeaderComponent = () => {
                 Dashboard
               </Link>
               <Link
-                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cOrderRoute.aListRoute}
+                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Orders
               </Link>
               <Link
-                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bProductRoute.aListRoute}
+                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Products
               </Link>
               <Link
-                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.dUserAdminiatrationRoute.cUserRoute.aListRoute}
+                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute}
                 className="text-muted-foreground hover:text-foreground"
               >
                 User Administration
@@ -198,7 +198,7 @@ const HeaderComponent = () => {
                   Delete Profile
                 </DropdownMenuItem>
               </Link>
-              <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.eSignOutRoute} >
+              <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.aProfileRetrieveRoute} >
                 <DropdownMenuItem>
                   Sign Out
                 </DropdownMenuItem>

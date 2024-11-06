@@ -58,23 +58,23 @@ const data = {
       items: [
         {
           title: "Base Many To One",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.aBaseManyToOneRoute,
+          url: "#",
         },
         {
           title: "Base Mnay To Many",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.bBaseManyToManyRoute,
+          url: "#",
         },
         {
           title: "Base",
           url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
         },
         {
-          title: "Bae One To One",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.dBaseOneToOneRoute,
+          title: "Base One To One",
+          url: "#",
         },
         {
           title: "Base One To Many",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.eBaseOneToManyRoute,
+          url: "#",
         },
       ],
     },
@@ -85,15 +85,15 @@ const data = {
       items: [
         {
           title: "User",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute,
+          url: "#",
         },
         {
           title: "Role",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute,
+          url: "#",
         },
         {
           title: "Menu",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute,
+          url: "#",
         },
       ],
     },

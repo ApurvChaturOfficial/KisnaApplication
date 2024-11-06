@@ -68,7 +68,7 @@ const BaseRetrieveComponent = (props: BaseRetrieveComponentType) => {
                             disabled={APICall.retrieveAPIResponse.isLoading}
                             asChild
                           >
-                            <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.dBaseRoute.dUpdateRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
+                            <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.dUpdateRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
                               {APICall.retrieveAPIResponse.isLoading ? "Loading..." : "Update"}
                             </Link>
                           </Button>
@@ -78,7 +78,7 @@ const BaseRetrieveComponent = (props: BaseRetrieveComponentType) => {
                             asChild
                             variant="destructive"
                           >
-                            <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.dBaseRoute.eDeleteRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
+                            <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.eDeleteRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
                               {APICall.retrieveAPIResponse.isLoading ? "Loading..." : "Delete"}
                             </Link>
                           </Button>

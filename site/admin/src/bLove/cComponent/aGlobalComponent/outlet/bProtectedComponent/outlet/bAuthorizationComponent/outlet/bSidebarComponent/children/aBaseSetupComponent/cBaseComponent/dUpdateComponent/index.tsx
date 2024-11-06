@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { formSchema } from "@/bLove/fPage/aGlobalPage/outlet/bProtectedPage/outlet/bAuthorizationPage/outlet/bSidebarPage/page/eSetting/dBasePage/dUpdatePage/extras/aAPIResponseHandler"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
 
 import {
@@ -39,6 +38,7 @@ import {
 } from "@/aConnection/bShadcnConnection/components/ui/form"
 import { RadioGroup, RadioGroupItem } from "@/aConnection/bShadcnConnection/components/ui/radio-group"
 import { Checkbox } from "@/aConnection/bShadcnConnection/components/ui/checkbox"
+import { formSchema } from "@/bLove/fPage/aGlobalPage/outlet/bProtectedPage/outlet/bAuthorizationPage/outlet/bSidebarPage/page/aBaseSetupPage/cBasePage/bCreatePage/extras/cType"
 
 
 type BaseUpdateComponentType = {
@@ -263,7 +263,7 @@ const BaseUpdateComponent = (props: BaseUpdateComponentType) => {
                               asChild
                               variant="destructive"
                             >
-                              <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.eSettingRoute.dBaseRoute.eDeleteRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
+                              <Link to={`${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.eDeleteRoute}/${APICall.retrieveAPIResponse.data.retrieve._id}`} >
                                 {APICall.retrieveAPIResponse.isLoading ? "Loading..." : "Delete"}
                               </Link>
                             </Button>
