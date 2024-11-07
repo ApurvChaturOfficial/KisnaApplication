@@ -23,12 +23,12 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                 <BreadcrumbList>
                   <BreadcrumbItem className="hidden md:block">
                     <BreadcrumbLink href="#">
-                      Building Your Application
+                      Dashboard
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>Data Fetching (LCRUD)</BreadcrumbPage>
+                    <BreadcrumbPage>Base</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

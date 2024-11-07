@@ -1,23 +1,29 @@
-const data = {
-  title: "Base List",
-  // subtitle: "Enter your email and password to access account",
-  // inputs: [
-  //   { 
-  //     name: "eEmail", 
-  //     label: "Email", 
-  //     type: "email", 
-  //     placeholder: "Please enter email..." 
-  //   },
-  //   { 
-  //     name: "ePassword", 
-  //     label: "Password", 
-  //     type: "password", 
-  //     placeholder: "Please enter password..." 
-  //   },
-  // ],
-  // button: {
-  //   label: "Sign In",
-  // }
+import { z } from "zod";
+import { listSchema } from "./cType";
+import fullRoute from "@/bLove/gRoute/bFullRoute";
+
+
+const data = (APICall: any) => {
+  return ({
+    header: {
+      title: "Base List",
+      subtitle: "Here's a list of your tasks for this month!",
+      buttons: [
+        { label: "Create Base", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.bCreateRoute }
+      ]
+    },
+    content: {
+      list: APICall.listAPIResponse.isLoading ? null : 
+      APICall.listAPIResponse.isError ? null :
+        APICall.listAPIResponse.isSuccess ? (
+          APICall.listAPIResponse.data.success ? (
+            APICall.listAPIResponse.data.list.length > 0 ? (
+              z.array(listSchema).parse(APICall.listAPIResponse.data.list).reverse()
+            ) : []
+          ) : []
+        ) : []
+    }
+  })
 }
 
 export default data;

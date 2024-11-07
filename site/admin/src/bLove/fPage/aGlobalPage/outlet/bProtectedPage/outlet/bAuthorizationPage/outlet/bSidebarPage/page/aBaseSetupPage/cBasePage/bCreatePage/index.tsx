@@ -10,7 +10,6 @@ import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiServerResponseHandler from "./extras/aAPIResponseHandler";
 
-// import BaseCreateComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/eSettingComponent/dBaseComponent/bCreateComponent";
 import BaseCreateComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/aBaseSetupComponent/cBaseComponent/bCreateComponent";
 import data from "./extras/bData";
 import { formSchema } from "./extras/cType";
@@ -45,10 +44,6 @@ const BaseCreatePage = () => {
         APICall={{
           createAPITrigger: APICall.createAPITrigger,
           createAPIResponse: APICall.createAPIResponse,
-          // baseOneToOneListAPIResponse: APICall.baseOneToOneListAPIResponse,
-          // baseOneToManyListAPIResponse: APICall.baseOneToManyListAPIResponse,
-          // baseManyToOneListAPIResponse: APICall.baseManyToOneListAPIResponse,
-          // baseManyToManyListAPIResponse: APICall.baseManyToManyListAPIResponse,
         }}
         extras={{
           apiResponseHandler: {
@@ -68,11 +63,6 @@ const BaseCreatePage = () => {
             cBaseOneToMany: [],
             cBaseManyToOne: "",
             cBaseManyToMany: [],
-      
-            dDynamicNested: [
-              { value: "https://shadcn.com" },
-              { value: "http://twitter.com/shadcn" },
-            ],
           }
         }}        
       />

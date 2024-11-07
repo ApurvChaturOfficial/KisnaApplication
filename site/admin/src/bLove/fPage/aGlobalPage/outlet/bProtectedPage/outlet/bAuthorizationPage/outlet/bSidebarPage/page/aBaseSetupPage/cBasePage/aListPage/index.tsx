@@ -8,6 +8,7 @@ import apiResponseHandler from "./extras/aAPIResponseHandler";
 
 import BaseListComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/aBaseSetupComponent/cBaseComponent/aListComponent";
 import data from "./extras/bData";
+import { listColumn, listSchema } from "./extras/cType";
 
 
 const BaseListPage = () => {
@@ -36,7 +37,9 @@ const BaseListPage = () => {
           apiResponseHandler: {
             listAPIResponseHandler: apiResponseHandler.listAPIResponseHandler
           },
-          data: data as any
+          data: data(APICall),
+          listSchema: listSchema,
+          listColumn: listColumn,
         }}
       />
     </React.Fragment>

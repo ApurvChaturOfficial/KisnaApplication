@@ -95,10 +95,10 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
             {extras.data.content.sections.map((eachSection: any, indexSection: number) => eachSection.display && (
               <React.Fragment key={indexSection} >
                 <div>
-                  <h3 className="text-lg font-medium">** {eachSection.title}</h3>
-                  <p className="text-sm text-muted-foreground">{eachSection.subtitle}</p>
+                  <h3 className="text-lg font-medium">{indexSection+1}) {eachSection.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{eachSection.subtitle}</p>
+                  <Separator />
                 </div>
-                <Separator />
   
                 <div className="space-y-8">
                   {eachSection.inputs.map((eachInput: any, indexInput: any) => (

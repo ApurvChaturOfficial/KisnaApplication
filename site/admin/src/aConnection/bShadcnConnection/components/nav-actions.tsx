@@ -3,6 +3,7 @@ import {
   ArrowDown,
   ArrowUp,
   Bell,
+  BellDotIcon,
   Copy,
   CornerUpLeft,
   CornerUpRight,
@@ -10,9 +11,9 @@ import {
   GalleryVerticalEnd,
   LineChart,
   Link,
-  MoreHorizontal,
+  // MoreHorizontal,
   Settings2,
-  Star,
+  // Star,
   Trash,
   Trash2,
 } from "lucide-react"
@@ -107,13 +108,14 @@ export function NavActions() {
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="hidden font-medium text-muted-foreground md:inline-block">
-        Edit Oct 08
+        7 November, 2024
       </div>
-      <Button variant="ghost" size="icon" className="h-7 w-7">
+      {/* <Button variant="ghost" size="icon" className="h-7 w-7">
         <Star />
-      </Button>
+      </Button> */}
+      <ModeToggle />
       <Popover open={isOpen} onOpenChange={setIsOpen}>
-        <PopoverTrigger asChild>
+        {/* <PopoverTrigger asChild>
           <Button
             variant="ghost"
             size="icon"
@@ -121,14 +123,14 @@ export function NavActions() {
           >
             <ModeToggle />
           </Button>
-        </PopoverTrigger>
+        </PopoverTrigger> */}
         <PopoverTrigger asChild>
           <Button
             variant="ghost"
             size="icon"
             className="h-7 w-7 data-[state=open]:bg-accent"
           >
-            <MoreHorizontal />
+            <BellDotIcon />
           </Button>
         </PopoverTrigger>
         <PopoverContent

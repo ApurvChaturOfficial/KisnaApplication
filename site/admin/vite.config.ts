@@ -8,8 +8,8 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
   registerType: "prompt",
   includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
   manifest: {
-    name: "Inventech",
-    short_name: "Inventech",
+    name: "Kisna",
+    short_name: "Kisna",
     description: "This a description for this app",
     icons: [
       {

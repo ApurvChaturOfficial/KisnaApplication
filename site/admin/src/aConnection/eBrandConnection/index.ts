@@ -1,5 +1,5 @@
 const brandConnection = {
-  "brandName": "Inventech"
+  "brandName": "Kisna"
 }
 
 export default brandConnection;

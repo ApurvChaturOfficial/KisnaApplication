@@ -1,19 +1,19 @@
 import * as React from "react"
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
+  // BookOpen,
+  // Bot,
   Command,
   Frame,
   GalleryVerticalEnd,
   Map,
   PieChart,
-  Settings2,
+  // Settings2,
   SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/aConnection/bShadcnConnection/components/nav-main"
-import { NavProjects } from "@/aConnection/bShadcnConnection/components/nav-projects"
+// import { NavProjects } from "@/aConnection/bShadcnConnection/components/nav-projects"
 import { NavUser } from "@/aConnection/bShadcnConnection/components/nav-user"
 import { TeamSwitcher } from "@/aConnection/bShadcnConnection/components/team-switcher"
 import {
@@ -34,17 +34,17 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Kisna Admin",
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
     {
-      name: "Acme Corp.",
+      name: "Kisna Corp.",
       logo: AudioWaveform,
       plan: "Startup",
     },
     {
-      name: "Evil Corp.",
+      name: "Kisna Corp.",
       logo: Command,
       plan: "Free",
     },
@@ -52,17 +52,17 @@ const data = {
   navMain: [
     {
       title: "Base Setup",
-      url: "#",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
       icon: SquareTerminal,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "Base Many To One",
-          url: "#",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.aBaseManyToOneRoute.aListRoute,
         },
         {
-          title: "Base Mnay To Many",
-          url: "#",
+          title: "Base Many To Many",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.bBaseManyToManyRoute.aListRoute,
         },
         {
           title: "Base",
@@ -70,117 +70,117 @@ const data = {
         },
         {
           title: "Base One To One",
-          url: "#",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.dBaseOneToOneRoute.aListRoute,
         },
         {
           title: "Base One To Many",
-          url: "#",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.eBaseOneToManyRoute.aListRoute,
         },
       ],
     },
-    {
-      title: "User Administration",
-      url: "#",
-      icon: SquareTerminal,
-      items: [
-        {
-          title: "User",
-          url: "#",
-        },
-        {
-          title: "Role",
-          url: "#",
-        },
-        {
-          title: "Menu",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "User Administration",
+    //   url: "#",
+    //   icon: Bot,
+    //   items: [
+    //     {
+    //       title: "User",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Role",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Menu",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Playground",
+    //   url: "#",
+    //   icon: SquareTerminal,
+    //   items: [
+    //     {
+    //       title: "History",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Starred",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Settings",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Models",
+    //   url: "#",
+    //   icon: Bot,
+    //   items: [
+    //     {
+    //       title: "Genesis",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Explorer",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Quantum",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Documentation",
+    //   url: "#",
+    //   icon: BookOpen,
+    //   items: [
+    //     {
+    //       title: "Introduction",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Get Started",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Tutorials",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Changelog",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: "General",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Team",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Billing",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Limits",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
   projects: [
     {
@@ -209,7 +209,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

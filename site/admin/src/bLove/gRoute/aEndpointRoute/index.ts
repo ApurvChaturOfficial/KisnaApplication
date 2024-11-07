@@ -25,8 +25,20 @@ const endpointRoute = {
           eDataCardRoute: "data-card",
 
           aBaseSetupRoute: {
-            aBaseManyToOneRoute: {},
-            bBaseManyToManyRoute: {},
+            aBaseManyToOneRoute: {
+              aListRoute: "base-many-to-one-list",
+              bCreateRoute: "base-many-to-one-create",
+              cRetrieveRoute: "base-many-to-one-retrieve",
+              dUpdateRoute: "base-many-to-one-update",
+              eDeleteRoute: "base-many-to-one-delete",
+            },
+            bBaseManyToManyRoute: {
+              aListRoute: "base-many-to-many-list",
+              bCreateRoute: "base-many-to-many-create",
+              cRetrieveRoute: "base-many-to-many-retrieve",
+              dUpdateRoute: "base-many-to-many-update",
+              eDeleteRoute: "base-many-to-many-delete",
+            },
             cBaseRoute: {
               aListRoute: "base-list",
               bCreateRoute: "base-create",
@@ -34,8 +46,20 @@ const endpointRoute = {
               dUpdateRoute: "base-update",
               eDeleteRoute: "base-delete",
             },
-            dBaseOneToOneRoute: {},
-            eBaseOneToManyRoute: {},
+            dBaseOneToOneRoute: {
+              aListRoute: "base-one-to-one-list",
+              bCreateRoute: "base-one-to-one-create",
+              cRetrieveRoute: "base-one-to-one-retrieve",
+              dUpdateRoute: "base-one-to-one-update",
+              eDeleteRoute: "base-one-to-one-delete",
+            },
+            eBaseOneToManyRoute: {
+              aListRoute: "base-one-to-many-list",
+              bCreateRoute: "base-one-to-many-create",
+              cRetrieveRoute: "base-one-to-many-retrieve",
+              dUpdateRoute: "base-one-to-many-update",
+              eDeleteRoute: "base-one-to-many-delete",
+            },
           }
         }
       }
