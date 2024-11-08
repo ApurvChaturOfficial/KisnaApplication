@@ -27,7 +27,14 @@ const appConnection = express();
 
 // Third Party Middleware
 appConnection.use(morganMiddleware("dev"));
-appConnection.use(corsMiddleware({ origin: ["http://localhost:5173", "https://kisna-001.netlify.app"], credentials: true }));
+appConnection.use(corsMiddleware({ origin: process.env.ENVIRONMENT === "Production" ?
+  [
+    "https://kisna-001.netlify.app",
+  ] : 
+  [
+    "http://localhost:5173",
+    "http://localhost:5174",
+  ], credentials: true }));
 appConnection.use(bodyParserMiddleware.urlencoded({ extended: true }));
 appConnection.use(bodyParserMiddleware.json());
 appConnection.use(cookieParserMiddleware());
