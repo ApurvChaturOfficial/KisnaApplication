@@ -45,7 +45,7 @@ const data = (APICall: any) => {
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details.",
                   inputs: [
-                    { name: "cBase", label: "Base", type: "checkbox",
+                    { name: "cBase", label: "Base", type: "radio",
                       options: 
                         APICall.baseListAPIResponse.isLoading ? null : 
                           APICall.baseListAPIResponse.isError ? null :

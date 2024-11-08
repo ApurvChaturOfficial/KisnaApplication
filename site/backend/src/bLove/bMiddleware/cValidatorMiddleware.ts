@@ -37,10 +37,17 @@ const baseManyToOneCreateValidation = () => [
     .notEmpty().withMessage("Please enter title"),
   body("cBase")
     .notEmpty().withMessage("Please select base")
-    .isMongoId().withMessage("Invalid MongoDB ID format for Base")
-    .custom(async (value: mongoose.ObjectId) => {
-      const retrieve = await BaseModel.findById(value);
-      if (!retrieve) throw new ErrorUtility("Base Not Found", 404)
+    .custom(async (value: mongoose.ObjectId[]) => {
+      await Promise.all(value.map(async (each) => {
+        const idAsString = each as unknown as string;
+  
+        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
+          throw new ErrorUtility("Invalid MongoDB ID format for Base", 400);
+        }
+  
+        const retrieve = await BaseModel.findById(idAsString);
+        if (!retrieve) throw new ErrorUtility("Base Not Found", 404);
+      }));
       return true;
     }),
 ]
@@ -71,10 +78,17 @@ const baseManyToOneUpdateValidation = () => [
     }),
   body("cBase")
     .notEmpty().withMessage("Please select base")
-    .isMongoId().withMessage("Invalid MongoDB ID format for Base")
-    .custom(async (value: mongoose.ObjectId) => {
-      const retrieve = await BaseModel.findById(value);
-      if (!retrieve) throw new ErrorUtility("Base Not Found", 404)
+    .custom(async (value: mongoose.ObjectId[]) => {
+      await Promise.all(value.map(async (each) => {
+        const idAsString = each as unknown as string;
+  
+        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
+          throw new ErrorUtility("Invalid MongoDB ID format for Base", 400);
+        }
+  
+        const retrieve = await BaseModel.findById(idAsString);
+        if (!retrieve) throw new ErrorUtility("Base Not Found", 404);
+      }));
       return true;
     }),
 ]
@@ -379,17 +393,10 @@ const baseOneToManyCreateValidation = () => [
     .notEmpty().withMessage("Please enter title"),
   body("cBase")
     .notEmpty().withMessage("Please select base")
-    .custom(async (value: mongoose.ObjectId[]) => {
-      await Promise.all(value.map(async (each) => {
-        const idAsString = each as unknown as string;
-  
-        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
-          throw new ErrorUtility("Invalid MongoDB ID format for Base", 400);
-        }
-  
-        const retrieve = await BaseModel.findById(idAsString);
-        if (!retrieve) throw new ErrorUtility("Base Not Found", 404);
-      }));
+    .isMongoId().withMessage("Invalid MongoDB ID format for Base")
+    .custom(async (value: mongoose.ObjectId) => {
+      const retrieve = await BaseModel.findById(value);
+      if (!retrieve) throw new ErrorUtility("Base Not Found", 404)
       return true;
     }),
 ]
@@ -420,17 +427,10 @@ const baseOneToManyUpdateValidation = () => [
     }),
   body("cBase")
     .notEmpty().withMessage("Please select base")
-    .custom(async (value: mongoose.ObjectId[]) => {
-      await Promise.all(value.map(async (each) => {
-        const idAsString = each as unknown as string;
-  
-        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
-          throw new ErrorUtility("Invalid MongoDB ID format for Base", 400);
-        }
-  
-        const retrieve = await BaseModel.findById(idAsString);
-        if (!retrieve) throw new ErrorUtility("Base Not Found", 404);
-      }));
+    .isMongoId().withMessage("Invalid MongoDB ID format for Base")
+    .custom(async (value: mongoose.ObjectId) => {
+      const retrieve = await BaseModel.findById(value);
+      if (!retrieve) throw new ErrorUtility("Base Not Found", 404)
       return true;
     }),
 ]

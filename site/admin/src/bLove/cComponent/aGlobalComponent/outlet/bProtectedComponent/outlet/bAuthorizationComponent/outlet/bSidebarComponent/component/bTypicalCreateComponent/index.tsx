@@ -29,6 +29,9 @@ import { RadioGroup, RadioGroupItem } from "@/aConnection/bShadcnConnection/comp
 import { Checkbox } from "@/aConnection/bShadcnConnection/components/ui/checkbox"
 import { Separator } from "@/aConnection/bShadcnConnection/components/ui/separator"
 import { toast } from "@/aConnection/bShadcnConnection/hooks/use-toast"
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table"
+import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
+import { Label } from "@/aConnection/bShadcnConnection/components/ui/label"
 
 
 type TypicalCreateComponentType = {
@@ -104,7 +107,7 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                   {eachSection.inputs.map((eachInput: any, indexInput: any) => (
                     <React.Fragment>
                       {/* For I/P Type: Text, Email, Number */}
-                      {((eachInput.type === "text" || eachInput.type === "email" || eachInput.type === "number") && 
+                      {((eachInput.type === "text" || eachInput.type === "email" || eachInput.type === "number" || eachInput.type === "password") && 
                         <div className="grid gap-3" key={indexInput} >
                           <FormField
                             control={form.control}
@@ -113,7 +116,7 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                               <FormItem>
                                 <FormLabel>{eachInput.label} :</FormLabel>
                                 <FormControl>
-                                  <Input placeholder={eachInput.placeholder} {...field} />
+                                  <Input placeholder={eachInput.placeholder} type={eachInput.type} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -262,8 +265,89 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                             )}
                           />
                         </div>
+                      )}
+
+                      {/* For I/P Type: Special Checkbox */}
+                      {((eachInput.type === "special-checkbox") &&
+                        <div className="grid gap-3" key={indexInput} >
+
+                          <FormField
+                            control={form.control}
+                            name={eachInput.name}
+                            render={() => (
+                              <FormItem>
+                                <div className="mb-4">
+                                  <FormLabel>{eachInput.label}:</FormLabel>
+                                  <FormDescription>
+                                    {/* Select the items you want to. */}
+                                  </FormDescription>
+                                </div>
+                                {eachInput.data?.map((each: any, index: number) => (
+                                  <>
+                                    <FormItem>
+                                      <div className="flex flex-row mb-4 gap-4">
+                                        <FormLabel>{eachInput.label}:</FormLabel>
+                                        <FormField
+                                          key={index}
+                                          control={form.control}
+                                          name={eachInput.name}
+                                          render={({ field }) => {
+                                            return (
+                                              <FormItem
+                                                key={index}
+                                                className="flex flex-row items-start space-x-3 space-y-0"
+                                              >
+                                                <FormControl>
+                                                  <Checkbox
+                                                    checked={field.value?.includes(each.value)}
+                                                    onCheckedChange={(checked) => {
+                                                      return checked
+                                                        ? field.onChange([...field.value, each.value])
+                                                        : field.onChange(
+                                                            field.value?.filter(
+                                                              (value: any) => value !== each.value
+                                                            )
+                                                          )
+                                                    }}
+                                                  />
+                                                </FormControl>
+                                                <FormLabel className="text-sm font-normal">
+                                                  {each.label}
+                                                </FormLabel>
+                                              </FormItem>
+                                            )
+                                          }}
+                                        />
+                                      </div>
+                                    </FormItem>
+                                  </>
+                                ))}
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+
+                          <Label htmlFor={eachInput.label}>{eachInput.label} :</Label>
+                          <ScrollArea>
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  {eachInput.columns.map((eachColumn: any, indexColumn: number) => (
+                                    <TableHead key={indexColumn} className="min-w-[100px]">{eachColumn}</TableHead>
+                                  ))}
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {eachInput.data}
+                              </TableBody>
+                            </Table>
+                            <ScrollBar orientation="horizontal" />
+                          </ScrollArea>
+                        </div>
 
                       )}
+
                     </React.Fragment>
                   ))}
                 </div>

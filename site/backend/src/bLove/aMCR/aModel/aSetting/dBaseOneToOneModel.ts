@@ -3,9 +3,16 @@ import slugify from 'slugify';
 import { DefaultSchemaUtility, DefaultSchemaUtilityType } from '../../../cUtility/bDefaultSchemaUtility';
 
 
-const schema = new mongoose.Schema<DefaultSchemaUtilityType>({
+export type BaseOneToOneModelType = DefaultSchemaUtilityType & {
+  cBase: {};
+};
+
+const schema = new mongoose.Schema<BaseOneToOneModelType>({
   ...DefaultSchemaUtility.schema.obj,
-})
+
+  cBase: { type: mongoose.Schema.Types.ObjectId, ref: 'BaseModel' } ,
+
+} as mongoose.SchemaDefinition<BaseOneToOneModelType>)
 
 // Pre Validate
 schema.pre("validate", function(next) {
@@ -13,4 +20,4 @@ schema.pre("validate", function(next) {
   next();
 })
 
-export const BaseOneToOneModel = mongoose.model<DefaultSchemaUtilityType>("BaseOneToOneModel", schema);
+export const BaseOneToOneModel = mongoose.model<BaseOneToOneModelType>("BaseOneToOneModel", schema);

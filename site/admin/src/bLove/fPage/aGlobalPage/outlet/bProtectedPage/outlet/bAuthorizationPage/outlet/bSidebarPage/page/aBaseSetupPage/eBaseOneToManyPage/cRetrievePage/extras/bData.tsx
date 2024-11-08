@@ -46,7 +46,7 @@ const data = (APICall: any) => {
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details, you will see relation details.",
                   values: [
-                    { label: "Base", value: APICall.retrieveAPIResponse.data.retrieve.cBase?.map((each: any) => each.aTitle).join(", "), type: "normal" },
+                    { label: "Base", value: APICall.retrieveAPIResponse.data.retrieve.cBase?.aTitle, type: "normal" },
                   ],  
                 },
         

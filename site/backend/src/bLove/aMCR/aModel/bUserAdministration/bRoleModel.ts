@@ -4,7 +4,7 @@ import { DefaultSchemaUtility, DefaultSchemaUtilityType } from '../../../cUtilit
 
 
 export type RoleModelType = DefaultSchemaUtilityType & {
-  cMenus: {
+  cMenu: {
     menu: mongoose.Types.ObjectId;
     access: {
       list: boolean;
@@ -19,7 +19,7 @@ export type RoleModelType = DefaultSchemaUtilityType & {
 const schema = new mongoose.Schema<RoleModelType>({
   ...DefaultSchemaUtility.schema.obj,
 
-  cMenus: {
+  cMenu: {
     type: [{
       menu: { type: mongoose.Schema.Types.ObjectId, ref: "MenuModel", required: true },
       access: {

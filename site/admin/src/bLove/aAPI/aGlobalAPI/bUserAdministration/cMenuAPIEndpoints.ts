@@ -4,7 +4,7 @@ import apiConnection from "@/aConnection/cAPIConnection";
 const menuAPIEndpoint = apiConnection.injectEndpoints({
   endpoints: (builder) => ({
     
-    MenuListAPI: builder.query({
+    menuListAPI: builder.query({
       query: () => ({
         url: `menu/list/`,
         method: "GET"
@@ -12,7 +12,7 @@ const menuAPIEndpoint = apiConnection.injectEndpoints({
       providesTags: ["MenuList"]
     }),
 
-    MenuCreateAPI: builder.mutation({
+    menuCreateAPI: builder.mutation({
       query: (data) => ({
         url: `menu/create/`,
         method: "POST",
@@ -21,14 +21,14 @@ const menuAPIEndpoint = apiConnection.injectEndpoints({
       invalidatesTags: ["MenuList"]
     }),
 
-    MenuRetrievePI: builder.query({
+    menuRetrievePI: builder.query({
       query: (data) => ({
         url: `menu/retrieve/${data.params._id}`,
         method: "GET",
       })
     }),
 
-    MenuUpdateAPI: builder.mutation({
+    menuUpdateAPI: builder.mutation({
       query: (data) => ({
         url: `menu/update/${data.params._id}`,
         method: "PUT",
@@ -37,7 +37,7 @@ const menuAPIEndpoint = apiConnection.injectEndpoints({
       invalidatesTags: ["MenuList"]
     }),
 
-    MenuDeleteAPI: builder.mutation({
+    menuDeleteAPI: builder.mutation({
       query: (data) => ({
         url: `menu/delete/${data.params._id}`,
         method: "DELETE"

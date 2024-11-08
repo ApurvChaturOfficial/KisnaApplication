@@ -2,7 +2,7 @@ import * as React from "react"
 import {
   AudioWaveform,
   // BookOpen,
-  // Bot,
+  Bot,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -78,25 +78,25 @@ const data = {
         },
       ],
     },
-    // {
-    //   title: "User Administration",
-    //   url: "#",
-    //   icon: Bot,
-    //   items: [
-    //     {
-    //       title: "User",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Role",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Menu",
-    //       url: "#",
-    //     },
-    //   ],
-    // },
+    {
+      title: "User Administration",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "User",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.aUserRoute.aListRoute,
+        },
+        {
+          title: "Role",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.bRoleRoute.aListRoute,
+        },
+        {
+          title: "Menu",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.cMenuRoute.aListRoute,
+        },
+      ],
+    },
     // {
     //   title: "Playground",
     //   url: "#",

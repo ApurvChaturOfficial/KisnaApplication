@@ -21,6 +21,6 @@ export const formSchema = z.object({
     .min(10, { message: "Please enter atlest 10 characters" })
     .max(50, { message: "Please enter atmost 50 characters" }),
   
-  cBase: z.array(z.string()),
+  cBase: z.string(),
 
 });

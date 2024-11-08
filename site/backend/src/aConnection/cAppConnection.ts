@@ -27,7 +27,7 @@ const appConnection = express();
 
 // Third Party Middleware
 appConnection.use(morganMiddleware("dev"));
-appConnection.use(corsMiddleware({ origin: ["http://localhost:5173", "https://kisna-001.netlify.app", "https://inventech-001.netlify.app"], credentials: true }));
+appConnection.use(corsMiddleware({ origin: ["http://localhost:5173", "https://kisna-001.netlify.app"], credentials: true }));
 appConnection.use(bodyParserMiddleware.urlencoded({ extended: true }));
 appConnection.use(bodyParserMiddleware.json());
 appConnection.use(cookieParserMiddleware());

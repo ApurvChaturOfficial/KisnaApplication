@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { DataTable } from "./components/data-table"
 
 import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
+import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
 
 
 type TypicalListComponentType = {
@@ -43,7 +44,11 @@ export default function TypicalListComponent(props: TypicalListComponentType) {
           ))}
           </div>
         </div>
-        {extras.data?.content?.list && <DataTable data={extras.data.content.list} columns={extras.listColumn} />}
+
+        <ScrollArea className="w-fit whitespace-nowrap rounded-md border-none">
+          {extras.data?.content?.list && <DataTable data={extras.data.content.list} columns={extras.listColumn} />}
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
         {/* <DataTable data={tasks} columns={columns} /> */}
       </div>
     </>

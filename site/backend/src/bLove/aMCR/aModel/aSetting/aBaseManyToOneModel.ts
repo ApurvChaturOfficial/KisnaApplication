@@ -4,13 +4,13 @@ import { DefaultSchemaUtility, DefaultSchemaUtilityType } from '../../../cUtilit
 
 
 export type BaseManyToOneModelType = DefaultSchemaUtilityType & {
-  cBase: {};
+  cBase: {}[];
 };
 
 const schema = new mongoose.Schema<BaseManyToOneModelType>({
   ...DefaultSchemaUtility.schema.obj,
 
-  cBase:  { type: mongoose.Schema.Types.ObjectId, ref: 'BaseModel' } ,
+  cBase : [{ type: mongoose.Schema.Types.ObjectId, ref: 'BaseModel' }],
 
 } as mongoose.SchemaDefinition<BaseManyToOneModelType>)
 

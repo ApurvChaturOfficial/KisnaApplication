@@ -60,6 +60,30 @@ const endpointRoute = {
               dUpdateRoute: "base-one-to-many-update",
               eDeleteRoute: "base-one-to-many-delete",
             },
+          },
+
+          bUserAdministration: {
+            aUserRoute: {
+              aListRoute: "user-list",
+              bCreateRoute: "user-create",
+              cRetrieveRoute: "user-retrieve",
+              dUpdateRoute: "user-update",
+              eDeleteRoute: "user-delete",
+            },
+            bRoleRoute: {
+              aListRoute: "role-list",
+              bCreateRoute: "role-create",
+              cRetrieveRoute: "role-retrieve",
+              dUpdateRoute: "role-update",
+              eDeleteRoute: "role-delete",
+            },
+            cMenuRoute: {
+              aListRoute: "menu-list",
+              bCreateRoute: "menu-create",
+              cRetrieveRoute: "menu-retrieve",
+              dUpdateRoute: "menu-update",
+              eDeleteRoute: "menu-delete",
+            },
           }
         }
       }

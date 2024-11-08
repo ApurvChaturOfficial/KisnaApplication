@@ -53,7 +53,7 @@ const BaseManyToOneCreatePage = () => {
             aStatus: "",
             aSlug: "",
       
-            cBase: "",
+            cBase: [],
           }
         }}        
       />

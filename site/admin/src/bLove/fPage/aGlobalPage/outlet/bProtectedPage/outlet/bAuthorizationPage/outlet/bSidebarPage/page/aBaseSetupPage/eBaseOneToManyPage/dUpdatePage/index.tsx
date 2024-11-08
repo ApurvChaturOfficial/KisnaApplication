@@ -60,7 +60,7 @@ const BaseOneToManyUpdatePage = () => {
             aStatus: "",
             aSlug: "",
       
-            cBase: [],
+            cBase: "",
           },
           previousValue: (form: any) => (
             form.setValue("aTitle", APICall.retrieveAPIResponse.data.retrieve?.aTitle),
@@ -70,7 +70,7 @@ const BaseOneToManyUpdatePage = () => {
             form.setValue("aStatus", APICall.retrieveAPIResponse.data.retrieve?.aStatus ? "active" : "inactive"),
             form.setValue("aSlug", APICall.retrieveAPIResponse.data.retrieve?.aSlug),
     
-            form.setValue("cBase", APICall.retrieveAPIResponse.data.retrieve?.cBase?.map((each: any) => each._id))
+            form.setValue("cBase", APICall.retrieveAPIResponse.data.retrieve?.cBase?._id)
           )
         }}
         params={{id: id}}               

@@ -4,7 +4,7 @@ import apiConnection from "@/aConnection/cAPIConnection";
 const roleAPIEndpoint = apiConnection.injectEndpoints({
   endpoints: (builder) => ({
     
-    RoleListAPI: builder.query({
+    roleListAPI: builder.query({
       query: () => ({
         url: `role/list/`,
         method: "GET"
@@ -12,7 +12,7 @@ const roleAPIEndpoint = apiConnection.injectEndpoints({
       providesTags: ["RoleList"]
     }),
 
-    RoleCreateAPI: builder.mutation({
+    roleCreateAPI: builder.mutation({
       query: (data) => ({
         url: `role/create/`,
         method: "POST",
@@ -21,14 +21,14 @@ const roleAPIEndpoint = apiConnection.injectEndpoints({
       invalidatesTags: ["RoleList"]
     }),
 
-    RoleRetrievePI: builder.query({
+    roleRetrievePI: builder.query({
       query: (data) => ({
         url: `role/retrieve/${data.params._id}`,
         method: "GET",
       })
     }),
 
-    RoleUpdateAPI: builder.mutation({
+    roleUpdateAPI: builder.mutation({
       query: (data) => ({
         url: `role/update/${data.params._id}`,
         method: "PUT",
@@ -37,7 +37,7 @@ const roleAPIEndpoint = apiConnection.injectEndpoints({
       invalidatesTags: ["RoleList"]
     }),
 
-    RoleDeleteAPI: builder.mutation({
+    roleDeleteAPI: builder.mutation({
       query: (data) => ({
         url: `role/delete/${data.params._id}`,
         method: "DELETE"

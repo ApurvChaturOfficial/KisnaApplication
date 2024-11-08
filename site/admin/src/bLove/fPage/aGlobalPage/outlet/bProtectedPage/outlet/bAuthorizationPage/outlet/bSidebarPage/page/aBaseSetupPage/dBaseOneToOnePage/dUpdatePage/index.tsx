@@ -60,10 +60,7 @@ const BaseOneToOneUpdatePage = () => {
             aStatus: "",
             aSlug: "",
       
-            cBaseOneToOne: "",
-            cBaseOneToMany: [],
-            cBaseManyToOne: "",
-            cBaseManyToMany: [],
+            cBase: "",
           },
           previousValue: (form: any) => (
             form.setValue("aTitle", APICall.retrieveAPIResponse.data.retrieve?.aTitle),
@@ -73,10 +70,7 @@ const BaseOneToOneUpdatePage = () => {
             form.setValue("aStatus", APICall.retrieveAPIResponse.data.retrieve?.aStatus ? "active" : "inactive"),
             form.setValue("aSlug", APICall.retrieveAPIResponse.data.retrieve?.aSlug),
     
-            form.setValue("cBaseOneToOne", APICall.retrieveAPIResponse.data.retrieve?.cBaseOneToOne?._id),
-            form.setValue("cBaseOneToMany", APICall.retrieveAPIResponse.data.retrieve?.cBaseOneToMany?.map((each: any) => each._id)),
-            form.setValue("cBaseManyToOne", APICall.retrieveAPIResponse.data.retrieve?.cBaseManyToOne?._id),
-            form.setValue("cBaseManyToMany", APICall.retrieveAPIResponse.data.retrieve?.cBaseManyToMany?.map((each: any) => each._id))
+            form.setValue("cBase", APICall.retrieveAPIResponse.data.retrieve?.cBase?._id)
           )
         }}
         params={{id: id}}               
