@@ -16,6 +16,7 @@ import {
   // Star,
   Trash,
   Trash2,
+  User2Icon,
 } from "lucide-react"
 
 import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
@@ -34,6 +35,8 @@ import {
   SidebarMenuItem,
 } from "@/aConnection/bShadcnConnection/components/ui/sidebar"
 import { ModeToggle } from "./mode-toggle"
+import { NavLink } from "react-router-dom"
+import fullRoute from "@/bLove/gRoute/bFullRoute"
 
 const data = [
   [
@@ -139,6 +142,40 @@ export function NavActions() {
         >
           <Sidebar collapsible="none" className="bg-transparent">
             <SidebarContent>
+              <SidebarGroup className="border-b last:border-none">
+                <SidebarGroupContent className="gap-0">
+                  <SidebarMenu>
+                    <SidebarMenuItem>
+
+                      <SidebarMenuButton asChild>
+                        <NavLink to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.aProfileRetrieveRoute} >
+                          <User2Icon /> <span>Profile Retrieve</span>
+                        </NavLink>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton asChild>
+                        <NavLink to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.bProfileUpdateRoute} >
+                          <User2Icon /> <span>Profile Update</span>
+                        </NavLink>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton asChild>
+                        <NavLink to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.cProfilePasswordUpdateRoute} >
+                          <User2Icon /> <span>Profile Password Update</span>
+                        </NavLink>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton asChild>
+                        <NavLink to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.dProfileDeleteRoute} >
+                          <User2Icon /> <span>Profile Delete</span>
+                        </NavLink>
+                      </SidebarMenuButton>
+                      <SidebarMenuButton >
+                        <User2Icon /> <span>Logout</span>
+                      </SidebarMenuButton>
+
+                    </SidebarMenuItem>
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+
               {data.map((group, index) => (
                 <SidebarGroup key={index} className="border-b last:border-none">
                   <SidebarGroupContent className="gap-0">

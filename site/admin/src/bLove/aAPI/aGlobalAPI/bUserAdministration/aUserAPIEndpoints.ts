@@ -84,6 +84,22 @@ const userAPIEndpoint = apiConnection.injectEndpoints({
       })
     }),
 
+    userProfileUpdateAPI: builder.mutation({
+      query: (data) => ({
+        url: `user/profile/update/`,
+        method: "PUT",
+        body: data.body
+      })
+    }),
+
+    userProfilePasswordUpdateAPI: builder.mutation({
+      query: (data) => ({
+        url: `user/profile/password-update/`,
+        method: "POST",
+        body: data.body
+      })
+    }),
+
   })
 })
 

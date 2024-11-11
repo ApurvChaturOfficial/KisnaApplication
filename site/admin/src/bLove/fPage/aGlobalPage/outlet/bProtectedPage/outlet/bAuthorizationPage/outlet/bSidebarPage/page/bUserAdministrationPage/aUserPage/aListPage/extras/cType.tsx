@@ -68,7 +68,7 @@ export const listSchema = z.object({
   eLastname: z.string().optional(),
   eEmail: z.string().optional(),
   eMobile: z.string().optional(),
-  cRole: z.object({aTitle: z.string()}).optional(),
+  // cRole: z.object({aTitle: z.string()}).optional(),
   aStatus: z.boolean(),
   aSlug: z.string(),
 })
@@ -168,21 +168,21 @@ export const listColumn: ColumnDef<List>[] = [
       )
     },
   },
-  {
-    accessorKey: "cRole",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Role" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <div className="flex space-x-2">
-          <span className="max-w-[450px] truncate font-medium">
-            {(row.getValue("cRole") as { aTitle: string } | undefined)?.aTitle}
-          </span>
-        </div>
-      )
-    },
-  },
+  // {
+  //   accessorKey: "cRole",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Role" />
+  //   ),
+  //   cell: ({ row }) => {
+  //     return (
+  //       <div className="flex space-x-2">
+  //         <span className="max-w-[450px] truncate font-medium">
+  //           {(row.getValue("cRole") as { aTitle: string } | undefined)?.aTitle}
+  //         </span>
+  //       </div>
+  //     )
+  //   },
+  // },
   {
     id: "actions",
     cell: ({ row }) => (

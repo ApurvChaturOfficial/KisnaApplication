@@ -104,7 +104,7 @@ const menuController = (Model=MenuModel, Label="Menu") => ({
       await redisClient.del(`${Label.toLowerCase()}-list`, `${Label.toLowerCase()}-retrieve:${request.params.id}`)
 
       // Response
-      response.json(200).json({
+      response.status(200).json({
         success: true,
         message: `${Label} Deleted Successfully`,
         delete_object: delete_object

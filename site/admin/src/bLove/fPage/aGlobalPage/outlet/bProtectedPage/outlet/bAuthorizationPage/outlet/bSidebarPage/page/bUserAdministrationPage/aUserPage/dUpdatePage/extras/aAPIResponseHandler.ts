@@ -7,7 +7,7 @@ import { formSchema } from "./cType";
 
 const apiResponseHandler = {
   updateAPIResponseHandler: async (data: z.infer<typeof formSchema>, createAPITrigger: any, form: any, navigate: NavigateFunction, params: any) => {
-    console.log(params)
+
     try {
       const serverResponse = await createAPITrigger({ 
         params: { _id: params.id },

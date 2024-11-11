@@ -41,7 +41,7 @@ const data = (APICall: any) => {
 
                 // Relation Information
                 {
-                  display: false,
+                  display: true,
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details.",
                   inputs: [

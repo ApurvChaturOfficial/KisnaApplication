@@ -7,7 +7,10 @@ import validatorMiddleware, {
   userListValidation, 
   userLoginValidation, 
   userLogoutValidation, 
+  userProfileDeleteValidation, 
+  userProfilePasswordUpdateValidation, 
   userProfileRetrieveValidation, 
+  userProfileUpdateValidation, 
   userRegisterValidation, 
   userResetPasswordValidation, 
   userRetrieveValidation, 
@@ -98,5 +101,26 @@ router.route("/profile/retrieve").get(
   userProfileRetrieveValidation(), validatorMiddleware, 
   userController().profileRetrieve,
 );
+
+router.route("/profile/update").put(
+  rateLimiterMiddleware("profile-update", 60, 10), 
+  authenticationMiddleware,
+  userProfileUpdateValidation(), validatorMiddleware, 
+  userController().profileUpdate,
+);
+
+router.route("/profile/password-update").post(
+  rateLimiterMiddleware("profile-update", 60, 10), 
+  authenticationMiddleware,
+  userProfilePasswordUpdateValidation(), validatorMiddleware, 
+  userController().profilePasswordUpdate,
+);
+
+// router.route("/profile/delete").delete(
+//   rateLimiterMiddleware("profile-update", 60, 10), 
+//   authenticationMiddleware,
+//   userProfileDeleteValidation(), validatorMiddleware, 
+//   userController().profileDelete,
+// );
 
 export const userRouter = router;

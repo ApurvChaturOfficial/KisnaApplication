@@ -569,6 +569,12 @@ const userLogoutValidation = () => []
 
 const userProfileRetrieveValidation = () => []
 
+const userProfileUpdateValidation = () => []
+
+const userProfilePasswordUpdateValidation = () => []
+
+const userProfileDeleteValidation = () => []
+
 // Role
 const roleListValidation = () => []
 
@@ -847,6 +853,9 @@ export {
   userResetPasswordValidation,
   userLogoutValidation,
   userProfileRetrieveValidation,
+  userProfileUpdateValidation,
+  userProfilePasswordUpdateValidation,
+  userProfileDeleteValidation,
 
   roleListValidation,
   roleCreateValidation,

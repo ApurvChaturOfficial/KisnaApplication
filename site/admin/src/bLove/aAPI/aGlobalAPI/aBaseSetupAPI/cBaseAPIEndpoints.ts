@@ -38,7 +38,8 @@ const baseAPIEndpoint = apiConnection.injectEndpoints({
     }),
 
     baseDeleteAPI: builder.mutation({
-      query: (data) => ({
+      query: (data) => (
+        console.log("first"), {
         url: `base/delete/${data.params._id}`,
         method: "DELETE"
       }),

@@ -5,6 +5,7 @@ import catchAsyncMiddleware from "../../../bMiddleware/bCatchAsyncMiddleware";
 import generateCookie from '../../../cUtility/cGenerateCookie';
 import { UserModel } from '../../aModel/bUserAdministration/aUserModel';
 import { redisClient } from '../../../../aConnection/dRedisConnection';
+import ErrorUtility from '../../../cUtility/aErrorUtility';
 
 
 const userController = (Model=UserModel, Label="User") => ({
@@ -223,7 +224,13 @@ const userController = (Model=UserModel, Label="User") => ({
     async (request: express.Request, response: express.Response, next: express.NextFunction) => {
 
       // Retrieve
-      const retrieve = await Model.findOne({_id: (request as any).user});
+      const retrieve = await Model.findOne({_id: (request as any).user})
+        .populate("bCreatedBy", "eFirstname eLastname eEmail")
+        .populate("bUpdatedBy", "eFirstname eLastname eEmail")
+        .populate("cRole", "aTitle");
+
+      // Not Found
+      if (!retrieve) next(new ErrorUtility(`${Label} Not Found`, 404))
 
       // Response
 			response.status(200).json({ 
@@ -233,6 +240,84 @@ const userController = (Model=UserModel, Label="User") => ({
 			})
     }
   ),
+
+  // Profile Update Controller
+  profileUpdate: catchAsyncMiddleware(
+    async (request: express.Request, response: express.Response, next: express.NextFunction) => {
+
+    // Retrieve
+    let retrieve = await Model.findOne({_id: (request as any).user})
+      .populate("bCreatedBy", "eFirstname eLastname eEmail")
+      .populate("bUpdatedBy", "eFirstname eLastname eEmail")
+      .populate("cRole", "aTitle");
+
+    // Not Found
+    if (!retrieve) next(new ErrorUtility(`${Label} Not Found`, 404))
+  
+    // Personal Info
+    request.body.bUpdatedAt = new Date(Date.now()),
+    request.body.bUpdatedBy = (request as any).user 
+
+
+    // Update
+    const update = await Model.findByIdAndUpdate(
+      (request as any).user,
+      request.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+      }
+    )
+
+    // Response
+    response.status(200).json({
+      success: true,
+      message: `${Label} Profile Updated Successfully`,
+      update: update
+    })
+  }),
+
+  // Profile Update Password Controller
+  profilePasswordUpdate: catchAsyncMiddleware(async (request, response, next) => {
+    // Destructure Body
+    const {eOldPassword, eNewPassword, eConfirmPassword} = request.body
+
+    // Retrieve
+    const user = await Model.findById((request as any).user).select("+ePassword");
+
+    // Not Found
+    if (!user) next(new ErrorUtility(`${Label} Not Found`, 404))
+
+    // Check 1
+    if (!eOldPassword || !eNewPassword || !eConfirmPassword) next(new ErrorUtility("Please enter old password, new password and confirm password", 400))
+
+    // Check 2
+    if (eOldPassword === eNewPassword)  next(new ErrorUtility("New password connot be same as old password", 404));
+
+    // Check 3
+    if (eNewPassword !== eConfirmPassword)  next(new ErrorUtility("Please match both password", 400));
+
+    // Match Password 1
+    const isPasswordMatched1 = await (user as any).comparePassword(eOldPassword)
+
+    // Not Matched
+    if (!isPasswordMatched1) {
+      next(new ErrorUtility("Old password is incorrect", 401))
+    }
+
+    // // Match Password 2
+    // const isPasswordMatched2 = await user.comparePassword(new_password)
+
+    // // Not Matched
+    // if (isPasswordMatched2) next(new ErrorHandler("New password connot be same as old password", 401))
+
+    // Save
+    (user as any).ePassword = eNewPassword;
+    await (user as any).save();
+        
+    // Response
+    generateCookie(201, `${Label} Profile Password Updated Successfully`, `profile_password_update`, user, response)
+  }),
 
 })
 

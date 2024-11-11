@@ -8,6 +8,7 @@ import { RootState } from "@/aConnection/dReduxConnection";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
 
 import UserUpdateComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/bUserAdministrationComponent/aUserComponent/dUpdateComponent";
+import roleAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/bRoleAPIEndpoints";
 import data from "./extras/bData";
 import { formSchema } from "./extras/cType";
 
@@ -28,6 +29,10 @@ const UserUpdatePage = () => {
     retrieveAPIResponse: userAPIEndpoint.useUserRetrieveAPIQuery({ params: { _id: id } }),
     updateAPITrigger: userAPIEndpoint.useUserUpdateAPIMutation()[0],
     updateAPIResponse: userAPIEndpoint.useUserUpdateAPIMutation()[1],
+
+    // Relationship... Muaaah...
+    roleListAPIResponse: roleAPIEndpoint.useRoleListAPIQuery(null),
+
   }  
   
   // JSX

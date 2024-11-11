@@ -112,7 +112,7 @@ const baseOneToManyController = (Model=BaseOneToManyModel, Label="BaseOneToMany"
       console.log("Cache cleared...")
       
       // Response
-      response.json(200).json({
+      response.status(200).json({
         success: true,
         message: `${Label} Deleted Successfully`,
         delete_object: delete_object
