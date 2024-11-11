@@ -1,4 +1,5 @@
 const data = (APICall: any) => {
+  console.log(APICall)
   return ({
     header: {
       title: "Profile Password Update",
