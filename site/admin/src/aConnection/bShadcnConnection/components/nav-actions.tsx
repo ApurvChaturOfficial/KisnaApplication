@@ -129,9 +129,9 @@ export function NavActions() {
         </PopoverTrigger> */}
         <PopoverTrigger asChild>
           <Button
-            variant="ghost"
+            variant="secondary"
             size="icon"
-            className="h-7 w-7 data-[state=open]:bg-accent"
+            className="data-[state=open]:bg-accent"
           >
             <BellDotIcon />
           </Button>

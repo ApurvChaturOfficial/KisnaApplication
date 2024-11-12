@@ -30,24 +30,26 @@ const GlobalLayout = () => {
   
   // Auth Render
   useEffect(() => {
-    // console.log("ExtraObject", (Redux.state.extraObject as any)?.ProfileRetrieve?._id);
+    console.log("ExtraObject", (Redux.state.extraObject as any)?.ProfileRetrieve?._id);
     apiResponseHandler.retrieveAPIResponseHandler(APICall.retrieveAPIResponse, Redux);
   }, [(Redux.state.extraObject as any)?.ProfileRetrieve?._id])
   
   // Extra Render
   useEffect(() => {
-    // console.log("ReceivedObject", Redux.state.receivedObject)
+    console.log("ReceivedObject", Redux.state.receivedObject)
   }, [Redux.state.receivedObject])
   
   // JSX
   return (
     <React.Fragment>
       {/* GlobalLayout */}
-      { APICall.retrieveAPIResponse.isLoading ? <div className='min-h-screen flex justify-center items-center' >Checking Profile...</div> : (
+      {/* { APICall.retrieveAPIResponse.isLoading ? (
+        <div className='min-h-screen flex justify-center items-center' >Checking Profile...</div>
+      ) : ( */}
         <GlobalComponent>
           <Outlet />
         </GlobalComponent>
-      )}
+      {/* ) */}
     </React.Fragment>
   )
 }

@@ -1,19 +1,14 @@
 import { NavigateFunction } from "react-router-dom";
-import { z } from "zod";
 import { toast } from "@/aConnection/bShadcnConnection/hooks/use-toast";
 import fullRoute from "@/bLove/gRoute/bFullRoute";
-import { formSchema } from "./cType";
 
 
 const apiResponseHandler = {
-  signInAPIResponseHandler: async (data: z.infer<typeof formSchema>, Redux: any, submitAPITrigger: any, form: any, navigate: NavigateFunction) => {
+  logoutAPIResponseHandler: async (logoutAPITrigger: any, navigate: NavigateFunction, Redux: any) => {
     try {
-      const serverResponse = await submitAPITrigger({ body: {
-        eEmail: data.eEmail,
-        ePassword: data.ePassword,
-      } });
+      const serverResponse = await logoutAPITrigger();
 
-      console.log(serverResponse)
+      // console.log(serverResponse)
 
       if (serverResponse.error && serverResponse.error.originalStatus === 404) {
         return toast({
@@ -37,18 +32,15 @@ const apiResponseHandler = {
           title: "Yayy! Congratulations...",
           description: serverResponse.data.message,
         })
-        form.reset();
-
-        Redux.dispatch(
-          Redux.action.extraObjectAction({
-            ProfileRetrieve: {
-              _id: serverResponse.data.user_login._id
-            }
-          })
-        )
 
         return navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)
       }
+
+      Redux.dispatch(
+        Redux.action.receivedObject({
+          ProfileRetrieve: {}
+        })
+      )
 
       return;
 

@@ -1,4 +1,5 @@
 import React from "react"
+import HeaderComponent from "./component/aHeaderComponent";
 
 
 const UnprotectedComponent = ({ children }: { children: React.ReactNode }) => {
@@ -6,6 +7,7 @@ const UnprotectedComponent = ({ children }: { children: React.ReactNode }) => {
   return (
     <React.Fragment>
       {/* UnprotectedComponent */}
+      <HeaderComponent />
       { children }
     </React.Fragment>
   )

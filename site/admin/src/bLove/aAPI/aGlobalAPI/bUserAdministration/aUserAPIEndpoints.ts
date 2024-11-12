@@ -77,6 +77,13 @@ const userAPIEndpoint = apiConnection.injectEndpoints({
       }),
     }),
 
+    userLogoutAPI: builder.query({
+      query: () => ({
+        url: `user/auth/logout/`,
+        method: "GET",
+      }),
+    }),
+
     userProfileRetrieveAPI: builder.query({
       query: () => ({
         url: `user/profile/retrieve/`,

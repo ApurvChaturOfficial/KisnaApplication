@@ -1,12 +1,16 @@
 "use client"
 
 import {
-  BadgeCheck,
-  Bell,
+  BookmarkX,
   ChevronsUpDown,
-  CreditCard,
+  FolderKey,
+  KeyRound,
+  LogIn,
   LogOut,
-  Sparkles,
+  Rat,
+  User2,
+  UserPen,
+  UserPlus,
 } from "lucide-react"
 
 import {
@@ -29,15 +33,28 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/aConnection/bShadcnConnection/components/ui/sidebar"
+import getInitialsUtility from "@/bLove/dUtility/aGetInitialsUtility"
+import React from "react"
+import { Button } from "./ui/button"
+import { Link, NavigateFunction } from "react-router-dom"
+import fullRoute from "@/bLove/gRoute/bFullRoute"
+import apiResponseHandler from "@/bLove/cComponent/aGlobalComponent/outlet/aUnprotectedComponent/component/aHeaderComponent/extras/aAPIResponseHandler";
+
 
 export function NavUser({
   user,
+  ReduxCall,
+  APICall,
+  navigate
 }: {
   user: {
     name: string
     email: string
     avatar: string
-  }
+  },
+  ReduxCall: any,
+  APICall: any,
+  navigate: NavigateFunction
 }) {
   const { isMobile } = useSidebar()
 
@@ -50,14 +67,31 @@ export function NavUser({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-              </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
-              </div>
+              {
+                (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ? (
+                  <React.Fragment>
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback className="rounded-lg">{getInitialsUtility(
+                        (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
+                        (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
+                      )}</AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">{`
+                        ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname} 
+                        ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname}
+                      `}</span>
+                      <span className="truncate text-xs">{(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eEmail}</span>
+                    </div>
+                  </React.Fragment>
+                ) : (
+                  <Button variant="secondary" size="icon" className="rounded-full">
+                    <User2 className="h-5 w-5" />
+                    <span className="sr-only">Toggle user menu</span>
+                  </Button>
+                )
+              }
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -68,44 +102,82 @@ export function NavUser({
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
-                </div>
-              </div>
+              {
+                (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ? (
+                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback className="rounded-lg">{getInitialsUtility(
+                        (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
+                        (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
+                      )}</AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">{`
+                        ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname} 
+                        ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname}
+                      `}</span>
+                      <span className="truncate text-xs">{(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eEmail}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <Button variant="secondary" size="icon" className="rounded-full">
+                    <User2 className="h-5 w-5" />
+                    <span className="sr-only">Toggle user menu</span>
+                  </Button>
+                )
+              }
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifications
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
-              Log out
-            </DropdownMenuItem>
+            {
+              (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ? (
+                <DropdownMenuGroup>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.aProfileRetrieveRoute} >
+                      <Rat /> View Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.bProfileUpdateRoute} >
+                      <UserPen /> Edit Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.cProfilePasswordUpdateRoute} >
+                      <FolderKey /> Change Password
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.aTopbarRoute.dProfileDeleteRoute} >
+                      <BookmarkX /> Delete Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <span onClick={() => apiResponseHandler.logoutAPIResponseHandler(APICall.logoutAPITrigger, navigate, ReduxCall)} >
+                      <LogOut /> Sign Out
+                    </span>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              ) : (
+                <DropdownMenuGroup>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.aSignInRoute} >
+                      <LogIn /> Sign In
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.bSignUpRoute} >
+                      <UserPlus /> Sign Up
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild >
+                    <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.cForgotPasswordRoute} >
+                    <KeyRound /> Forgot Password
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              )
+            }
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
