@@ -24,7 +24,7 @@ import {
   SidebarRail,
 } from "@/aConnection/bShadcnConnection/components/ui/sidebar"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
-import { NavigateFunction } from "react-router-dom"
+
 
 // This is sample data.
 const data = {
@@ -202,7 +202,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.ComponentProps<typeof Sidebar> & { ReduxCall: any,APICall: any, navigate: NavigateFunction })) {
+export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.ComponentProps<typeof Sidebar> & { ReduxCall?: any,APICall?: any, navigate?: any })) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

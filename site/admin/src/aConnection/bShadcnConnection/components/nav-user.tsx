@@ -36,7 +36,7 @@ import {
 import getInitialsUtility from "@/bLove/dUtility/aGetInitialsUtility"
 import React from "react"
 import { Button } from "./ui/button"
-import { Link, NavigateFunction } from "react-router-dom"
+import { Link } from "react-router-dom"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
 import apiResponseHandler from "@/bLove/cComponent/aGlobalComponent/outlet/aUnprotectedComponent/component/aHeaderComponent/extras/aAPIResponseHandler";
 
@@ -52,9 +52,9 @@ export function NavUser({
     email: string
     avatar: string
   },
-  ReduxCall: any,
-  APICall: any,
-  navigate: NavigateFunction
+  ReduxCall?: any,
+  APICall?: any,
+  navigate?: any
 }) {
   const { isMobile } = useSidebar()
 
