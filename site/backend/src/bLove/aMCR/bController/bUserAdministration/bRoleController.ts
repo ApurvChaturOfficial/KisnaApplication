@@ -2,6 +2,7 @@ import express from 'express';
 
 import catchAsyncMiddleware from "../../../bMiddleware/bCatchAsyncMiddleware";
 import { RoleModel } from '../../aModel/bUserAdministration/bRoleModel';
+import { MenuModel } from '../../aModel/bUserAdministration/cMenuModel';
 import { redisClient } from '../../../../aConnection/dRedisConnection';
 
 
@@ -53,7 +54,8 @@ const roleController = (Model=RoleModel, Label="Role") => ({
       // Retrieve
       const retrieve = await Model.findById(request.params.id)
         .populate("bCreatedBy", "eFirstname eLastname eEmail")
-        .populate("bUpdatedBy", "eFirstname eLastname eEmail");
+        .populate("bUpdatedBy", "eFirstname eLastname eEmail")
+        .populate("cMenu.menu", "aTitle");
 
       // Set Cache
       await redisClient.setex(`${Label.toLowerCase()}-retrieve:${request.params.id}`, 60, JSON.stringify(retrieve));

@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 
 import { z } from "zod"
 import { useNavigate } from "react-router-dom"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 
@@ -29,6 +29,9 @@ import { RadioGroup, RadioGroupItem } from "@/aConnection/bShadcnConnection/comp
 import { Checkbox } from "@/aConnection/bShadcnConnection/components/ui/checkbox"
 import { Separator } from "@/aConnection/bShadcnConnection/components/ui/separator"
 import { toast } from "@/aConnection/bShadcnConnection/hooks/use-toast"
+import { Label } from "@/aConnection/bShadcnConnection/components/ui/label"
+import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table"
 
 
 type TypicalUpdateComponentType = {
@@ -63,6 +66,14 @@ const TypicalUpdateComponent = (props: TypicalUpdateComponentType) => {
     mode: "onChange",
     defaultValues: extras.formDefaultValue
   })
+
+  // Watch the entire form data
+  const watchedData = form.watch(); // This will trigger on every form change
+
+  // Log watched data to console
+  useEffect(() => {
+    console.log("Current form data:", watchedData);
+  }, [watchedData]); // Re-run this effect whenever form data changes  
 
   // Submit Handler
   const onSubmit = async (data: z.infer<typeof extras.formSchema>) => {
@@ -288,6 +299,68 @@ const TypicalUpdateComponent = (props: TypicalUpdateComponentType) => {
                                       </div>
 
                                     )}
+
+                                    {/* For I/P Type: Special Checkbox */}
+                                    {((eachInput.type === "special-checkbox") &&
+                                      <div className="grid gap-3" key={indexInput} >
+                                        <Label htmlFor="cMenu">Menu:</Label>
+                                        <ScrollArea>
+                                          <Table>
+                                            <TableHeader>
+                                              <TableRow>
+                                                {eachInput.columns.map((eachColumn: any, indexColumn: any) => (
+                                                  <TableHead key={indexColumn} className="min-w-[100px]">
+                                                    {eachColumn}
+                                                  </TableHead>
+                                                ))}
+                                              </TableRow>
+                                            </TableHeader>
+                                            <TableBody>
+                                              {eachInput.options?.map((menuOption: any, indexOption: any) => (
+                                                <TableRow key={indexOption}>
+                                                  <TableCell>{menuOption.label}</TableCell>
+                                    
+                                                  {['list', 'create', 'retrieve', 'update', 'delete'].map((permission) => (
+                                                    <TableCell key={permission}>
+                                                      <Controller
+                                                        name={`cMenu.${indexOption}.access.${permission}`}
+                                                        control={form.control}
+                                                        defaultValue={true} // Ensure default value is true
+                                                        render={({ field }) => (
+                                                          <input 
+                                                            type="checkbox"
+                                                            {...field} 
+                                                            checked={field.value || false} // Reflect checkbox state
+                                                            onChange={(e) => {
+                                                              // When checkbox is clicked, modify the form's cMenu data
+                                                              const newValue = e.target.checked;
+                                    
+                                                              // Ensure the menu ID is included in the cMenu array
+                                                              let updatedData = [...form.getValues().cMenu]
+
+                                                              if (!updatedData[indexOption]) {
+                                                                updatedData[indexOption] = { menu: menuOption.id, access: {} }; // Add menu and access if not present
+                                                              }
+                                    
+                                                              updatedData[indexOption].access[permission] = newValue; // Update the corresponding permission
+                                    
+                                                              // Dynamically update the form state with the new cMenu data
+                                                              form.setValue("cMenu", updatedData);
+                                                            }}
+                                                          />
+                                                        )}
+                                                      />
+                                                    </TableCell>
+                                                  ))}
+                                                </TableRow>
+                                              ))}
+                                            </TableBody>
+                                          </Table>
+                                          <ScrollBar orientation="horizontal" />
+                                        </ScrollArea>
+                                      </div>
+                                    )}
+
                                   </React.Fragment>
                                 ))}
                               </div>

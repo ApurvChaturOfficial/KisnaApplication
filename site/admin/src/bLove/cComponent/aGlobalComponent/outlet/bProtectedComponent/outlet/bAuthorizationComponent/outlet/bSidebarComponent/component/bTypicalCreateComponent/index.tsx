@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { z } from "zod"
 import { useNavigate } from "react-router-dom"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 
@@ -29,7 +29,7 @@ import { RadioGroup, RadioGroupItem } from "@/aConnection/bShadcnConnection/comp
 import { Checkbox } from "@/aConnection/bShadcnConnection/components/ui/checkbox"
 import { Separator } from "@/aConnection/bShadcnConnection/components/ui/separator"
 import { toast } from "@/aConnection/bShadcnConnection/hooks/use-toast"
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table"
 import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
 import { Label } from "@/aConnection/bShadcnConnection/components/ui/label"
 
@@ -39,6 +39,7 @@ type TypicalCreateComponentType = {
   APICall: {
     createAPITrigger: any,
     createAPIResponse: any,
+    specialListAPIResponse: any
   }
   extras: {
     apiResponseHandler: {
@@ -47,6 +48,7 @@ type TypicalCreateComponentType = {
     data: any,
     formSchema: any,
     formDefaultValue: any,
+    specialPreviousValue?: any
   }
 }
 
@@ -64,6 +66,14 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
     defaultValues: extras.formDefaultValue
   })
 
+  // Watch the entire form data
+  const watchedData = form.watch(); // This will trigger on every form change
+
+  // Log watched data to console
+  useEffect(() => {
+    console.log("Current form data:", watchedData);
+  }, [watchedData]); // Re-run this effect whenever form data changes
+
   // Submit Handler
   const onSubmit = async (data: z.infer<typeof extras.formSchema>) => {
     console.log(data)
@@ -79,7 +89,24 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
 
     extras.apiResponseHandler.createAPIResponseHandler(data, APICall.createAPITrigger, form, navigate)
     // extras.apiResponseHandler.createAPIResponseHandler(data, ReduxCall, APICall.createAPITrigger, form, navigate)
-  }   
+  } 
+  
+  // All Render
+  // First Render
+  useEffect(() => {
+    if (APICall.specialListAPIResponse) {
+      APICall.specialListAPIResponse.isLoading ? null : 
+      APICall.specialListAPIResponse.isError ? null :
+      APICall.specialListAPIResponse.isSuccess ? (
+        APICall.specialListAPIResponse.data.success ? (
+          extras.specialPreviousValue(form)
+        ) : null
+      ) : null
+    } else {
+      return
+    }
+  }, [APICall.specialListAPIResponse])    
+
 
   // JSX
   return (
@@ -270,82 +297,62 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                       {/* For I/P Type: Special Checkbox */}
                       {((eachInput.type === "special-checkbox") &&
                         <div className="grid gap-3" key={indexInput} >
-
-                          <FormField
-                            control={form.control}
-                            name={eachInput.name}
-                            render={() => (
-                              <FormItem>
-                                <div className="mb-4">
-                                  <FormLabel>{eachInput.label}:</FormLabel>
-                                  <FormDescription>
-                                    {/* Select the items you want to. */}
-                                  </FormDescription>
-                                </div>
-                                {eachInput.data?.map((each: any, index: number) => (
-                                  <>
-                                    <FormItem>
-                                      <div className="flex flex-row mb-4 gap-4">
-                                        <FormLabel>{eachInput.label}:</FormLabel>
-                                        <FormField
-                                          key={index}
-                                          control={form.control}
-                                          name={eachInput.name}
-                                          render={({ field }) => {
-                                            return (
-                                              <FormItem
-                                                key={index}
-                                                className="flex flex-row items-start space-x-3 space-y-0"
-                                              >
-                                                <FormControl>
-                                                  <Checkbox
-                                                    checked={field.value?.includes(each.value)}
-                                                    onCheckedChange={(checked) => {
-                                                      return checked
-                                                        ? field.onChange([...field.value, each.value])
-                                                        : field.onChange(
-                                                            field.value?.filter(
-                                                              (value: any) => value !== each.value
-                                                            )
-                                                          )
-                                                    }}
-                                                  />
-                                                </FormControl>
-                                                <FormLabel className="text-sm font-normal">
-                                                  {each.label}
-                                                </FormLabel>
-                                              </FormItem>
-                                            )
-                                          }}
-                                        />
-                                      </div>
-                                    </FormItem>
-                                  </>
-                                ))}
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-
-
-                          <Label htmlFor={eachInput.label}>{eachInput.label} :</Label>
+                          <Label htmlFor="cMenu">Menu:</Label>
                           <ScrollArea>
                             <Table>
                               <TableHeader>
                                 <TableRow>
-                                  {eachInput.columns.map((eachColumn: any, indexColumn: number) => (
-                                    <TableHead key={indexColumn} className="min-w-[100px]">{eachColumn}</TableHead>
+                                  {eachInput.columns.map((eachColumn: any, indexColumn: any) => (
+                                    <TableHead key={indexColumn} className="min-w-[100px]">
+                                      {eachColumn}
+                                    </TableHead>
                                   ))}
                                 </TableRow>
                               </TableHeader>
                               <TableBody>
-                                {eachInput.data}
+                                {eachInput.options?.map((menuOption: any, indexOption: any) => (
+                                  <TableRow key={indexOption}>
+                                    <TableCell>{menuOption.label}</TableCell>
+                      
+                                    {['list', 'create', 'retrieve', 'update', 'delete'].map((permission) => (
+                                      <TableCell key={permission}>
+                                        <Controller
+                                          name={`cMenu.${indexOption}.access.${permission}`}
+                                          control={form.control}
+                                          defaultValue={true} // Ensure default value is true
+                                          render={({ field }) => (
+                                            <input 
+                                              type="checkbox"
+                                              {...field} 
+                                              checked={field.value || false} // Reflect checkbox state
+                                              onChange={(e) => {
+                                                // When checkbox is clicked, modify the form's cMenu data
+                                                const newValue = e.target.checked;
+                      
+                                                // Ensure the menu ID is included in the cMenu array
+                                                let updatedData = [...form.getValues().cMenu]
+
+                                                if (!updatedData[indexOption]) {
+                                                  updatedData[indexOption] = { menu: menuOption.id, access: {} }; // Add menu and access if not present
+                                                }
+                      
+                                                updatedData[indexOption].access[permission] = newValue; // Update the corresponding permission
+                      
+                                                // Dynamically update the form state with the new cMenu data
+                                                form.setValue("cMenu", updatedData);
+                                              }}
+                                            />
+                                          )}
+                                        />
+                                      </TableCell>
+                                    ))}
+                                  </TableRow>
+                                ))}
                               </TableBody>
                             </Table>
                             <ScrollBar orientation="horizontal" />
                           </ScrollArea>
                         </div>
-
                       )}
 
                     </React.Fragment>

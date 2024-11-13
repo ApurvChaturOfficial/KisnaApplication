@@ -21,12 +21,12 @@ const AuthenticationLayout = () => {
 
   // All Renders
 	// First Render
-	useEffect(() => {
-		(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
-			navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)
-			:
-			null
-	}, [ReduxCall.state])
+	// useEffect(() => {
+	// 	(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
+	// 		navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)
+	// 		:
+	// 		null
+	// }, [ReduxCall.state])
   
   // JSX
   return (

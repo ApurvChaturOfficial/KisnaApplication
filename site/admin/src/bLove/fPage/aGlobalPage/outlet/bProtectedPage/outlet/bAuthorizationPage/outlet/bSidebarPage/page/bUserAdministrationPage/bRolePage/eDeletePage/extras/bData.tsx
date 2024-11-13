@@ -1,7 +1,7 @@
 const data = (APICall: any) => {
   return ({
     header: {
-      title: "Role Retrieve",
+      title: "Role Delete",
       subtitle: "Here's a list of your tasks for this month!",
       buttons: []
     },
@@ -45,7 +45,11 @@ const data = (APICall: any) => {
                   display: true,
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details, you will see relation details.",
-                  values: [],  
+                  values: [
+                    { label: "Menu", value: APICall.retrieveAPIResponse.data.retrieve.cMenu, type: "special-checkbox", 
+                      columns: ['Menu Items', 'List', 'Create', 'Retrieve', 'Update', 'Delete' ],
+                    },
+                  ],  
                 },
         
                 // More Information

@@ -1,6 +1,20 @@
 import { z } from "zod";
 
 
+const accessSchema = z.object({
+  list: z.boolean().default(true),
+  create: z.boolean().default(true),
+  retrieve: z.boolean().default(true),
+  update: z.boolean().default(true),
+  delete: z.boolean().default(true),
+});
+
+// Define the cMenu item schema
+const cMenuItemSchema = z.object({
+  menu: z.string().optional(), // Expecting ObjectId as a string
+  access: accessSchema,
+});
+
 export const formSchema = z.object({
   aTitle: z.string()
     .min(10, { message: "Please enter atlest 10 characters" })
@@ -21,4 +35,6 @@ export const formSchema = z.object({
     .min(10, { message: "Please enter atlest 10 characters" })
     .max(50, { message: "Please enter atmost 50 characters" }),
   
+  cMenu: z.array(cMenuItemSchema).optional(), // Optional in case there are no menu items initially
+
 });

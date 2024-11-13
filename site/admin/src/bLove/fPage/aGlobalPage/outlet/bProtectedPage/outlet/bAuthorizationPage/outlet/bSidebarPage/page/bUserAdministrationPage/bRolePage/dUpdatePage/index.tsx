@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import roleAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/bRoleAPIEndpoints";
+import menuAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/cMenuAPIEndpoints";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import { RootState } from "@/aConnection/dReduxConnection";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
@@ -28,6 +29,10 @@ const RoleUpdatePage = () => {
     retrieveAPIResponse: roleAPIEndpoint.useRoleRetrievePIQuery({ params: { _id: id } }),
     updateAPITrigger: roleAPIEndpoint.useRoleUpdateAPIMutation()[0],
     updateAPIResponse: roleAPIEndpoint.useRoleUpdateAPIMutation()[1],
+
+    // Relationship... Muaaah...
+    menuListAPIResponse: menuAPIEndpoint.useMenuListAPIQuery(null),
+
   }  
   
   // JSX
@@ -54,6 +59,7 @@ const RoleUpdatePage = () => {
             aDetail: "",
             aStatus: "",
             aSlug: "",
+            cMenu: "asdasdsadsa",
           },
           previousValue: (form: any) => (
             form.setValue("aTitle", APICall.retrieveAPIResponse.data.retrieve?.aTitle),
@@ -61,7 +67,12 @@ const RoleUpdatePage = () => {
             form.setValue("aDescription", APICall.retrieveAPIResponse.data.retrieve?.aDescription),
             form.setValue("aDetail", APICall.retrieveAPIResponse.data.retrieve?.aDetail),
             form.setValue("aStatus", APICall.retrieveAPIResponse.data.retrieve?.aStatus ? "active" : "inactive"),
-            form.setValue("aSlug", APICall.retrieveAPIResponse.data.retrieve?.aSlug)
+            form.setValue("aSlug", APICall.retrieveAPIResponse.data.retrieve?.aSlug),
+
+            form.setValue("cMenu", APICall.retrieveAPIResponse.data.retrieve?.cMenu?.map((each: any) => ({
+              menu: each.menu._id,
+              access: each.access
+            })))
           )
         }}
         params={{id: id}}               

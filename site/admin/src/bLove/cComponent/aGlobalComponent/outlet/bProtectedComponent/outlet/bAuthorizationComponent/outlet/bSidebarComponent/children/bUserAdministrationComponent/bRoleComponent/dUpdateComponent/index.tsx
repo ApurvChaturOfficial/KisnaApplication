@@ -8,7 +8,7 @@ type RoleUpdateComponentType = {
   APICall: {
     retrieveAPIResponse: any,
     updateAPITrigger: any,
-    updateAPIResponse: any
+    updateAPIResponse: any,
   }
   extras: {
     apiResponseHandler: {

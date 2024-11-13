@@ -41,10 +41,26 @@ const data = (APICall: any) => {
 
                 // Relation Information
                 {
-                  display: false,
+                  display: true,
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details.",
-                  inputs: [],  
+                  inputs: [
+                    { name: "cMenu", label: "Menu", type: "special-checkbox",
+                      columns: ['Menu Items', 'List', 'Create', 'Retrieve', 'Update', 'Delete' ],
+                      options: 
+                        APICall.menuListAPIResponse.isLoading ? null : 
+                          APICall.menuListAPIResponse.isError ? null :
+                            APICall.menuListAPIResponse.isSuccess ? (
+                              APICall.menuListAPIResponse.data.success ? (
+                                APICall.menuListAPIResponse.data.list.length > 0 ? (
+                                  APICall.menuListAPIResponse.data.list.map((each: any) => ({
+                                    value: each._id, id: each._id, label: each.aTitle
+                                  })).reverse()
+                                ) : []
+                              ) : []
+                            ) : []
+                    },
+                  ],  
                 },
 
                 // More Information

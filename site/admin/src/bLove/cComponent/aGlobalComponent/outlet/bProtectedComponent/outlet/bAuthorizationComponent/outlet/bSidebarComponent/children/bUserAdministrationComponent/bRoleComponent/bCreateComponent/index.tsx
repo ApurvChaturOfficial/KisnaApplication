@@ -8,6 +8,7 @@ type RoleCreateComponentType = {
   APICall: {
     createAPITrigger: any,
     createAPIResponse: any,
+    specialListAPIResponse: any,
   }
   extras: {
     apiResponseHandler: {
@@ -16,6 +17,7 @@ type RoleCreateComponentType = {
     data: any
     formSchema: any,
     formDefaultValue: any,
+    specialPreviousValue?: any,
   }
 }
 
@@ -32,6 +34,7 @@ const RoleCreateComponent = (props: RoleCreateComponentType) => {
         APICall={{
           createAPITrigger: APICall.createAPITrigger,
           createAPIResponse: APICall.createAPIResponse,
+          specialListAPIResponse: APICall.specialListAPIResponse
         }}
         extras={{
           apiResponseHandler: {
@@ -39,7 +42,8 @@ const RoleCreateComponent = (props: RoleCreateComponentType) => {
           },
           data: extras.data,
           formSchema: extras.formSchema,
-          formDefaultValue: extras.formDefaultValue
+          formDefaultValue: extras.formDefaultValue,
+          specialPreviousValue: extras.specialPreviousValue,
         }}        
       />
     </React.Fragment>

@@ -38,6 +38,7 @@ const RoleCreatePage = () => {
         APICall={{
           createAPITrigger: APICall.createAPITrigger,
           createAPIResponse: APICall.createAPIResponse,
+          specialListAPIResponse: APICall.menuListAPIResponse
         }}
         extras={{
           apiResponseHandler: {
@@ -54,7 +55,19 @@ const RoleCreatePage = () => {
             aSlug: "",
 
             cMenu: [],
-          }
+          },
+          specialPreviousValue: (form: any) => (
+            form.setValue("cMenu", APICall.menuListAPIResponse.data.list?.map((menuOption: any) => ({
+              menu: menuOption._id,
+              access: {
+                list: false,
+                create: false,
+                retrieve: false,
+                update: false,
+                delete: false,
+              },
+            })))
+          )
         }}        
       />
     </React.Fragment>
