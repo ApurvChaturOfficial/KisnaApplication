@@ -147,11 +147,17 @@ const HeaderComponent = () => {
                       <div className="flex items-center space-x-2">
                         <Avatar>
                           <AvatarImage src={"asdsadsad"} />
-                          <AvatarFallback>{getInitialsUtility("Apurv", "Chatur")}</AvatarFallback>
+                          <AvatarFallback>{getInitialsUtility(
+                            (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
+                            (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
+                          )}</AvatarFallback>
                         </Avatar>
                         <div className='hidden sm:block' >
-                          <p className="text-sm font-medium leading-none">{"Apurv Chatur"}</p>
-                          <p className="text-sm text-muted-foreground">{"apurvchaturofficial@gmail.com"}</p>
+                          <p className="text-sm font-medium leading-none">{`
+                            ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname} 
+                            ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname}
+                          `}</p>
+                          <p className="text-xs text-muted-foreground">{(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eEmail}</p>
                         </div>
                       </div>
                     </Link>

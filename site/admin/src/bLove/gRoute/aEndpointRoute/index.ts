@@ -84,7 +84,31 @@ const endpointRoute = {
               dUpdateRoute: "menu-update",
               eDeleteRoute: "menu-delete",
             },
-          }
+          },
+
+          cProductManagementRoute: {
+            aProductRoute: {
+              aListRoute: "product-list",
+              bCreateRoute: "product-create",
+              cRetrieveRoute: "product-retrieve",
+              dUpdateRoute: "product-update",
+              eDeleteRoute: "product-delete",
+            },
+            bCategoryRoute: {
+              aListRoute: "category-list",
+              bCreateRoute: "category-create",
+              cRetrieveRoute: "category-retrieve",
+              dUpdateRoute: "category-update",
+              eDeleteRoute: "category-delete",
+            },
+            cTagRoute: {
+              aListRoute: "tag-list",
+              bCreateRoute: "tag-create",
+              cRetrieveRoute: "tag-retrieve",
+              dUpdateRoute: "tag-update",
+              eDeleteRoute: "tag-delete",
+            },
+          },
         }
       }
     }

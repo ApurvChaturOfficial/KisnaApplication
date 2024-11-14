@@ -183,6 +183,29 @@ const data = {
     //   ],
     // },
   ],
+  cProductManagement: [
+    {
+      title: "Product Management",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+      icon: SquareTerminal,
+      isActive: false,
+      items: [
+        {
+          title: "Product",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+        },
+        {
+          title: "Category",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.bCategoryRoute.aListRoute,
+        },
+        {
+          title: "Tag",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.cTagRoute.aListRoute,
+        },
+      ],
+    },
+  ],
+
   projects: [
     {
       name: "Design Engineering",
@@ -209,7 +232,8 @@ export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.Co
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain header="For Developer" items={data.navMain} />
+        <NavMain header="Kisna Main" items={data.cProductManagement} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>

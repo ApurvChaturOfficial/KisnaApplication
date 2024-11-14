@@ -11,7 +11,9 @@ const categoryController = (Model=CategoryModel, Label="Category") => ({
     async (request: express.Request, response: express.Response, next: express.NextFunction) => {
 
       // List
-      const list = await Model.find();
+      const list = await Model.find()
+        .populate("bCreatedBy", "eFirstname eLastname eEmail")
+        .populate("bUpdatedBy", "eFirstname eLastname eEmail");
 
       // Set Cache
       await redisClient.setex(`${Label.toLowerCase()}-list`, 60, JSON.stringify(list))
@@ -53,7 +55,9 @@ const categoryController = (Model=CategoryModel, Label="Category") => ({
     async (request: express.Request, response: express.Response, next: express.NextFunction) => {
       
       // Retrieve
-      const retrieve = await Model.findById(request.params.id);
+      const retrieve = await Model.findById(request.params.id)
+        .populate("bCreatedBy", "eFirstname eLastname eEmail")
+        .populate("bUpdatedBy", "eFirstname eLastname eEmail");
 
       // Set Cache
       await redisClient.setex(`${Label.toLowerCase()}-retrieve:${request.params.id}`, 60, JSON.stringify(retrieve))

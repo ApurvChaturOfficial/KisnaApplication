@@ -10,7 +10,7 @@ const apiConnection = createApi({
   tagTypes: [
     "baseManyToOneList", "baseManyToManyList", "baseList", "baseOneToOneList", "baseOneToManyList", 
     "MenuList", "RoleList", "UserList",
-    "ProductList", "CategoryList", "TagList", 
+    "productList", "categoryList", "tagList", 
   ],
   endpoints: () => ({})
 })

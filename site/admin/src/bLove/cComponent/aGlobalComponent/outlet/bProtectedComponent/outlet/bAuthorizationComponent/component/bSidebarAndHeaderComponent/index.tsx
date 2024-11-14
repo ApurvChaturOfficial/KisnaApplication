@@ -72,7 +72,10 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                         <div className="flex items-center space-x-2">
                           <Avatar>
                             <AvatarImage src={"asdsadsad"} />
-                            <AvatarFallback>{getInitialsUtility("Apurv", "Chatur")}</AvatarFallback>
+                            <AvatarFallback>{getInitialsUtility(
+                              (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
+                              (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
+                            )}</AvatarFallback>
                           </Avatar>
                           <div className='hidden sm:block' >
                             <p className="text-sm font-medium leading-none">{`

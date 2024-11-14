@@ -674,7 +674,31 @@ const productListValidation = () => []
 
 const productCreateValidation = () => [
   body("aTitle")
-    .notEmpty().withMessage("Please enter title")
+    .notEmpty().withMessage("Please enter title"),
+  body("cCategory")
+    .notEmpty().withMessage("Please select category")
+    .isMongoId().withMessage("Invalid MongoDB ID format for Category")
+    .custom(async (value: mongoose.ObjectId) => {
+      const retrieve = await CategoryModel.findById(value);
+      if (!retrieve) throw new ErrorUtility("Category Not Found", 404)
+      return true;
+    }),
+  body("cTag")
+    .notEmpty().withMessage("Please select tag")
+    .custom(async (value: mongoose.ObjectId[]) => {
+      await Promise.all(value.map(async (each) => {
+        const idAsString = each as unknown as string;
+  
+        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
+          throw new ErrorUtility("Invalid MongoDB ID format for Tag", 400);
+        }
+  
+        const retrieve = await TagModel.findById(idAsString);
+        if (!retrieve) throw new ErrorUtility("Tag Not Found", 404);
+      }));
+      return true;
+    }),
+
 ]
 
 const productRetrieveValidation = () => [
@@ -700,7 +724,31 @@ const productUpdateValidation = () => [
      const retrieve = await ProductModel.findById(value);
       if (!retrieve) throw new ErrorUtility("Product Not Found", 404)
       return true;
-    })
+    }),
+  body("cCategory")
+    .notEmpty().withMessage("Please select category")
+    .isMongoId().withMessage("Invalid MongoDB ID format for Category")
+    .custom(async (value: mongoose.ObjectId) => {
+      const retrieve = await CategoryModel.findById(value);
+      if (!retrieve) throw new ErrorUtility("Category Not Found", 404)
+      return true;
+    }),
+  body("cTag")
+    .notEmpty().withMessage("Please select tag")
+    .custom(async (value: mongoose.ObjectId[]) => {
+      await Promise.all(value.map(async (each) => {
+        const idAsString = each as unknown as string;
+  
+        if (!mongoose.Types.ObjectId.isValid(idAsString)) {
+          throw new ErrorUtility("Invalid MongoDB ID format for Tag", 400);
+        }
+  
+        const retrieve = await TagModel.findById(idAsString);
+        if (!retrieve) throw new ErrorUtility("Tag Not Found", 404);
+      }));
+      return true;
+    }),
+
 ]
 
 const productDeleteValidation = () => [
