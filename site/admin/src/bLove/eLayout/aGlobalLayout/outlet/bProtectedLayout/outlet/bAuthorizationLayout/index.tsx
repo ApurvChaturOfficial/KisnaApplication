@@ -20,13 +20,13 @@ const AuthorizationLayout = () => {
   }
 
   // All Renders
-	// // First Render
-	// useEffect(() => {
-	// 	(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
-  //     null
-  //     :
-  //     navigate(fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.aSignInRoute)
-	// }, [ReduxCall.state])
+	// First Render
+	useEffect(() => {
+		(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
+      null
+      :
+      navigate(fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.aSignInRoute)
+	}, [ReduxCall.state])
 
   // JSX
   return (
