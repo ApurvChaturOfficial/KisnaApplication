@@ -1,3 +1,5 @@
+import fullRoute from "@/bLove/gRoute/bFullRoute";
+
 const data = {
   title: "Sign Up",
   subtitle: "Enter your name, email and password to create account",
@@ -11,7 +13,11 @@ const data = {
   ],
   button: {
     label: "Sign Up",
-  }
+  },
+  links: [
+    { linkMessage: "Already have an account?", linkRoute: fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.aSignInRoute, linkText: "Sign In" },
+    { linkMessage: "Forgot Password?", linkRoute: fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.cForgotPasswordRoute, linkText: "Reset Now" },
+  ]
 }
 
 export default data;

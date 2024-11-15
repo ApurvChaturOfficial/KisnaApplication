@@ -1,3 +1,5 @@
+import fullRoute from "@/bLove/gRoute/bFullRoute";
+
 const data = {
   title: "Reset Password",
   subtitle: "Enter your new password to access your account",
@@ -7,7 +9,11 @@ const data = {
   ],
   button: {
     label: "Reset Password",
-  }
+  },
+  links: [
+    { linkMessage: "Remembered the password?", linkRoute: fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.aSignInRoute, linkText: "Sign In" },
+    { linkMessage: "Want to create an account?", linkRoute: fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.bSignUpRoute, linkText: "Sign Up" },
+  ]
 }
 
 export default data;

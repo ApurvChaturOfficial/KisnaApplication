@@ -8,7 +8,6 @@ import { cn } from '@/aConnection/bShadcnConnection/lib/utils';
 import { Button } from '@/aConnection/bShadcnConnection/components/ui/button';
 import { Input } from '@/aConnection/bShadcnConnection/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/aConnection/bShadcnConnection/components/ui/form';
-import fullRoute from '@/bLove/gRoute/bFullRoute';
 
 
 export type AuthFormPropsType = {
@@ -37,7 +36,12 @@ export type AuthFormPropsType = {
       button: {
         label: string,
         handleSubmit: () => void;
-      }
+      },
+      links: {
+        linkMessage: string,
+        linkRoute: string,
+        linkText: string,
+      }[]
     }
   },
   token?: string | undefined
@@ -127,18 +131,15 @@ const AuthFormComponent = ({ className, Redux, APICall, extras, token, ...props 
           </div>
           
         </div>
-        <p className="px-8 text-center text-sm text-muted-foreground">
-          Don't have an account?{" "}
-          <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.bSignUpRoute} className="underline underline-offset-4 hover:text-primary" >
-            Sign Up Now
-          </Link>
-        </p>
-        <p className="px-8 text-center text-sm text-muted-foreground">
-          Forgot Password?{" "}
-          <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.cForgotPasswordRoute} className="underline underline-offset-4 hover:text-primary" >
-            Reset Now
-          </Link>
-        </p>
+        
+        {
+          extras.data?.links?.map((eachLink: any, indexLink: number) => (
+            <p className="px-8 text-center text-sm text-muted-foreground" key={indexLink} >
+              {eachLink.linkMessage}{" "}
+              <Link to={eachLink.linkRoute} className="underline underline-offset-4 hover:text-primary" >{eachLink.linkText}</Link>
+            </p>
+          ))
+        }
       </div>
 
     </React.Fragment>

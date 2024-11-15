@@ -103,6 +103,15 @@ const data = [
 
 export function NavActions() {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [time, setTime] = React.useState(new Date());
+
+  React.useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   // React.useEffect(() => {
   //   setIsOpen(true)
@@ -111,7 +120,12 @@ export function NavActions() {
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="hidden font-medium text-muted-foreground md:inline-block">
-        15 November, 2024
+        {time.toLocaleDateString(undefined, {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })} {time.toLocaleTimeString()}
       </div>
       {/* <Button variant="ghost" size="icon" className="h-7 w-7">
         <Star />
