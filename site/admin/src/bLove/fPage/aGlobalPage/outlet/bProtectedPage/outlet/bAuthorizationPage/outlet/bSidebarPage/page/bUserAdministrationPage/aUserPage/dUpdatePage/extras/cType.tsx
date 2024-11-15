@@ -3,10 +3,10 @@ import { z } from "zod";
 
 export const formSchema = z.object({
   aTitle: z.string()
-    .min(10, { message: "Please enter atlest 10 characters" })
+    .min(3, { message: "Please enter atlest 3 characters" })
     .max(50, { message: "Please enter atmost 50 characters" }),
   aSubtitle: z.string()
-    .min(10, { message: "Please enter atlest 10 characters" })
+    .min(3, { message: "Please enter atlest 3 characters" })
     .max(500, { message: "Please enter atmost 500 characters" }),
   aDescription: z.string()
     .min(15, { message: "Please enter atlest 15 characters" })
@@ -18,7 +18,7 @@ export const formSchema = z.object({
     .min(5, { message: "Please select status" })
     .max(15, { message: "Please select status" }),
   aSlug: z.string()
-    .min(10, { message: "Please enter atlest 10 characters" })
+    .min(3, { message: "Please enter atlest 3 characters" })
     .max(50, { message: "Please enter atmost 50 characters" }),
 
   cRole: z.string(),

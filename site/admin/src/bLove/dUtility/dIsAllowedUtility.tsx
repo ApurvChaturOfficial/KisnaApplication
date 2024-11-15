@@ -12,13 +12,13 @@ const isAllowedUtility = (
 const menuListUtility = {
   baseManyToOne: "Base Many To One",
   baseManyToMany: "Base Many To Many",
-  base: "Base------",
+  base: "Base",
   baseOneToOne: "Base One To One",
   baseOneToMany: "Base One To Many",
 
-  user: "User------",
+  user: "User",
   role: "Role",
-  menu: "Menu------",
+  menu: "Menu",
 
   product: "Product",
   category: "Category",
