@@ -11,6 +11,9 @@ import {
   CardTitle,
 } from "@/aConnection/bShadcnConnection/components/ui/card"
 import { formatLyricsWithHtml } from "@/aConnection/aAppConnection/HtmlTextParser";
+import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table";
+import { CheckCircle, OctagonMinus } from "lucide-react";
 
 
 type ProfileRetrieveComponentType = {
@@ -111,6 +114,52 @@ const ProfileRetrieveComponent = (props: ProfileRetrieveComponentType) => {
                                           </span>
                                         </li>
                                       ))}
+
+                                      {((eachValue.type === "special-checkbox" &&
+                                        <React.Fragment>
+                                          <li className="flex flex-col items-start justify-between">
+                                            <span className="text-muted-foreground">
+                                              {eachValue.label}:
+                                            </span>
+                                            <span className="flex flex-col items-end" >
+                                              <ScrollArea className="w-[450px] p-1" >
+                                              {eachValue.value ? (
+                                                <React.Fragment>
+                                                    <Table>
+                                                      <TableHeader>
+                                                        <TableRow>
+                                                          {eachValue.columns.map((eachColumn: any, indexColumn: any) => (
+                                                            <TableHead key={indexColumn} className="min-w-[100px]">
+                                                              {eachColumn}
+                                                            </TableHead>
+                                                          ))}
+                                                        </TableRow>
+                                                      </TableHeader>
+                                                      <TableBody>
+                                                        {eachValue.value
+                                                          ?.filter((menuOption: any) => menuOption?.menu?._id)
+                                                          ?.map((menuOption: any, indexOption: any) => (
+                                                          <TableRow key={indexOption}>
+                                                            <TableCell>{menuOption.menu.aTitle}</TableCell>
+                                                            {Object.keys(menuOption.access).map((permission) => (
+                                                              <TableCell key={permission} >
+                                                                {menuOption.access[permission] ? <CheckCircle className="text-green-500 h-4 w-4" /> : <OctagonMinus className="text-red-500 h-4 w-4" />}
+                                                              </TableCell>
+                                                            ))}
+
+                                                          </TableRow>
+                                                        ))}
+                                                      </TableBody>
+                                                    </Table>
+                                                    <ScrollBar orientation="horizontal" />
+                                                </React.Fragment>
+                                              ) : <span>--N/A--</span>}
+                                              </ScrollArea>
+                                            </span>
+                                          </li>
+                                        </React.Fragment>
+                                      ))}
+
                                     </React.Fragment>
                                   ))}
                                   {/* Important Comment */}

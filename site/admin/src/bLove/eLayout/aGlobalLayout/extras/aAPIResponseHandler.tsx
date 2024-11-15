@@ -10,23 +10,23 @@ const apiResponseHandler = {
     // Handle error
     if (retrieveAPIResponse.isError) {
       if (retrieveAPIResponse.error && retrieveAPIResponse.error.originalStatus === 404) {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Cannot connect with server.",
-          description: "There was a problem with server connection.",
-        });
+        // toast({
+        //   variant: "destructive",
+        //   title: "Uh oh! Cannot connect with server.",
+        //   description: "There was a problem with server connection.",
+        // });
       } else if (retrieveAPIResponse.error && retrieveAPIResponse.error?.data?.success === false) {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: retrieveAPIResponse.error?.data.message || "There was an error.",
-        });
+        // toast({
+        //   variant: "destructive",
+        //   title: "Uh oh! Something went wrong.",
+        //   description: retrieveAPIResponse.error?.data.message || "There was an error.",
+        // });
       } else {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: "An unexpected error occurred.",
-        });
+        // toast({
+        //   variant: "destructive",
+        //   title: "Error",
+        //   description: "An unexpected error occurred.",
+        // });
       }
       return;
     }

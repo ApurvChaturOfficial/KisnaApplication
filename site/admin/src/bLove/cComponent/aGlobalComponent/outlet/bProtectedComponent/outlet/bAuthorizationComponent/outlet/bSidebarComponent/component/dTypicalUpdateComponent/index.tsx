@@ -127,7 +127,7 @@ const TypicalUpdateComponent = (props: TypicalUpdateComponentType) => {
                       <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 
-                          {extras.data.content.sections?.map((eachSection: any, indexSection: number) => eachSection.display && (
+                          {extras.data.content.sections?.filter((eachSection: any) => eachSection.display)?.map((eachSection: any, indexSection: number) => eachSection.display && (
                             <React.Fragment key={indexSection} >
                               <div>
                                 <h3 className="text-lg font-medium">{indexSection+1}) {eachSection.title}</h3>

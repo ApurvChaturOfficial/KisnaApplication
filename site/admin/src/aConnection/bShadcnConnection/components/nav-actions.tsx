@@ -3,7 +3,7 @@ import {
   ArrowDown,
   ArrowUp,
   Bell,
-  BellDotIcon,
+  // BellDotIcon,
   Copy,
   CornerUpLeft,
   CornerUpRight,
@@ -19,11 +19,11 @@ import {
   User2Icon,
 } from "lucide-react"
 
-import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
+// import { Button } from "@/aConnection/bShadcnConnection/components/ui/button"
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
+  // PopoverTrigger,
 } from "@/aConnection/bShadcnConnection/components/ui/popover"
 import {
   Sidebar,
@@ -111,7 +111,7 @@ export function NavActions() {
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="hidden font-medium text-muted-foreground md:inline-block">
-        7 November, 2024
+        15 November, 2024
       </div>
       {/* <Button variant="ghost" size="icon" className="h-7 w-7">
         <Star />
@@ -127,7 +127,7 @@ export function NavActions() {
             <ModeToggle />
           </Button>
         </PopoverTrigger> */}
-        <PopoverTrigger asChild>
+        {/* <PopoverTrigger asChild>
           <Button
             variant="secondary"
             size="icon"
@@ -135,7 +135,7 @@ export function NavActions() {
           >
             <BellDotIcon />
           </Button>
-        </PopoverTrigger>
+        </PopoverTrigger> */}
         <PopoverContent
           className="w-56 overflow-hidden rounded-lg p-0"
           align="end"

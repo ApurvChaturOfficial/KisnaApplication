@@ -56,7 +56,7 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>Base</BreadcrumbPage>
+                    <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

@@ -8,6 +8,7 @@ import { cn } from '@/aConnection/bShadcnConnection/lib/utils';
 import { Button } from '@/aConnection/bShadcnConnection/components/ui/button';
 import { Input } from '@/aConnection/bShadcnConnection/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/aConnection/bShadcnConnection/components/ui/form';
+import fullRoute from '@/bLove/gRoute/bFullRoute';
 
 
 export type AuthFormPropsType = {
@@ -128,13 +129,13 @@ const AuthFormComponent = ({ className, Redux, APICall, extras, token, ...props 
         </div>
         <p className="px-8 text-center text-sm text-muted-foreground">
           Don't have an account?{" "}
-          <Link to="/terms" className="underline underline-offset-4 hover:text-primary" >
+          <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.bSignUpRoute} className="underline underline-offset-4 hover:text-primary" >
             Sign Up Now
           </Link>
         </p>
         <p className="px-8 text-center text-sm text-muted-foreground">
           Forgot Password?{" "}
-          <Link to="/terms" className="underline underline-offset-4 hover:text-primary" >
+          <Link to={fullRoute.aGlobalRoute.bProtectedRoute.aAuthenticationRoute.cForgotPasswordRoute} className="underline underline-offset-4 hover:text-primary" >
             Reset Now
           </Link>
         </p>

@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import globalSlice from "@/bLove/bRedux/aGlobalSlice";
-import { RootState } from "@/aConnection/dReduxConnection";
+import React from "react";
+import { Outlet } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import globalSlice from "@/bLove/bRedux/aGlobalSlice";
+// import { RootState } from "@/aConnection/dReduxConnection";
 
 import AuthorizationComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent";
-import fullRoute from "@/bLove/gRoute/bFullRoute";
+// import fullRoute from "@/bLove/gRoute/bFullRoute";
 
 
 const AuthorizationLayout = () => {
-  // Variable
-  const navigate = useNavigate();
+  // // Variable
+  // const navigate = useNavigate();
 
-  // Redux Call
-  const ReduxCall = {
-    state: useSelector((state: RootState) => state.globalSlice),
-    dispatch: useDispatch(),
-    action: globalSlice.actions
-  }
+  // // Redux Call
+  // const ReduxCall = {
+  //   state: useSelector((state: RootState) => state.globalSlice),
+  //   dispatch: useDispatch(),
+  //   action: globalSlice.actions
+  // }
 
   // All Renders
 	// // First Render
