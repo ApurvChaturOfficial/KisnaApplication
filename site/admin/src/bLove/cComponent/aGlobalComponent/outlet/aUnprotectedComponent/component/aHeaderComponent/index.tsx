@@ -59,7 +59,7 @@ const HeaderComponent = () => {
             )}
             onClick={() => navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)}
           />
-          <Link
+          {/* <Link
             to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aDashboardRoute}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
@@ -70,7 +70,7 @@ const HeaderComponent = () => {
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Products
-          </Link>
+          </Link> */}
         </nav>
         <Sheet>
           <SheetTrigger asChild>

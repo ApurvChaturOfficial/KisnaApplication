@@ -19,14 +19,14 @@ const AuthenticationLayout = () => {
     action: globalSlice.actions
   }
 
-  // All Renders
-	// First Render
-	useEffect(() => {
-		(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
-			navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)
-			:
-			null
-	}, [ReduxCall.state])
+  // // All Renders
+	// // First Render
+	// useEffect(() => {
+	// 	(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ?
+	// 		navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)
+	// 		:
+	// 		null
+	// }, [ReduxCall.state])
   
   // JSX
   return (

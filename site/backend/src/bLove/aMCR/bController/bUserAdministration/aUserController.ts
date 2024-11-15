@@ -58,7 +58,13 @@ const userController = (Model=UserModel, Label="User") => ({
       const retrieve = await Model.findById(request.params.id)
         .populate("bCreatedBy", "eFirstname eLastname eEmail")
         .populate("bUpdatedBy", "eFirstname eLastname eEmail")
-        .populate("cRole", "aTitle");
+        .populate({
+          path: 'cRole',
+          select: "aTitle cMenu",
+          populate: {
+            path: 'cMenu.menu',
+          }
+        });
 
       // Set Cache
       await redisClient.setex(`${Label.toLowerCase()}-retrieve:${request.params.id}`, 60, JSON.stringify(retrieve));
@@ -227,7 +233,13 @@ const userController = (Model=UserModel, Label="User") => ({
       const retrieve = await Model.findOne({_id: (request as any).user})
         .populate("bCreatedBy", "eFirstname eLastname eEmail")
         .populate("bUpdatedBy", "eFirstname eLastname eEmail")
-        .populate("cRole", "aTitle");
+        .populate({
+          path: 'cRole',
+          select: "aTitle cMenu",
+          populate: {
+            path: 'cMenu.menu',
+          }
+        });
 
       // Not Found
       if (!retrieve) next(new ErrorUtility(`${Label} Not Found`, 404))

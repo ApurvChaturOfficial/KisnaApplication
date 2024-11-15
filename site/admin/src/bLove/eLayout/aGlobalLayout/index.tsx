@@ -30,7 +30,7 @@ const GlobalLayout = () => {
   
   // Auth Render
   useEffect(() => {
-    console.log("ExtraObject", (Redux.state.extraObject as any)?.ProfileRetrieve?._id);
+    // console.log("ExtraObject", (Redux.state.extraObject as any)?.ProfileRetrieve?._id);
     apiResponseHandler.retrieveAPIResponseHandler(APICall.retrieveAPIResponse, Redux);
   }, [(Redux.state.extraObject as any)?.ProfileRetrieve?._id])
   
