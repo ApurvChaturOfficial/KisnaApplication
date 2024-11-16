@@ -1,8 +1,8 @@
 import fullRoute from "@/bLove/gRoute/bFullRoute";
 
 const data = {
-  title: "Sign Up",
-  subtitle: "Enter your name, email and password to create account",
+  title: "Sign-up to create account",
+  subtitle: "Registered users will be assigned with Viewer role",
   inputs: [
     { name: "eFirstname"      , label: "Firstname"       , type: "text"    , placeholder: "Please enter firstname..."         },
     { name: "eLastname"       , label: "Lastname"        , type: "text"    , placeholder: "Please enter lastname..."          },

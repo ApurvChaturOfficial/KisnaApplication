@@ -1,29 +1,34 @@
 import * as React from "react"
 import {
   AudioWaveform,
-  // BookOpen,
+  BookOpen,
   Bot,
   Command,
   Frame,
   GalleryVerticalEnd,
   Map,
   PieChart,
-  // Settings2,
   SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/aConnection/bShadcnConnection/components/nav-main"
-// import { NavProjects } from "@/aConnection/bShadcnConnection/components/nav-projects"
 import { NavUser } from "@/aConnection/bShadcnConnection/components/nav-user"
-import { TeamSwitcher } from "@/aConnection/bShadcnConnection/components/team-switcher"
+// import { TeamSwitcher } from "@/aConnection/bShadcnConnection/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/aConnection/bShadcnConnection/components/ui/sidebar"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
+import KisnaSmallGoldLogo from "@/bLove/hAsset/KisnaLogo/KisnaSmallGoldLogo.png";
+import KisnaSmallBlueLogo from "@/bLove/hAsset/KisnaLogo/KisnaSmallBlueLogo.png";
+import { Link } from "react-router-dom"
+import { cn } from "../lib/utils"
 
 
 // This is sample data.
@@ -35,50 +40,44 @@ const data = {
   },
   teams: [
     {
-      name: "Kisna Admin",
+      name: "Kisna",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "Brand",
     },
     {
-      name: "Kisna Corp.",
+      name: "H. K. Jewels",
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: "Company",
     },
     {
-      name: "Kisna Corp.",
+      name: "H. K. Exports",
       logo: Command,
-      plan: "Free",
+      plan: "Company",
     },
   ],
-  navMain: [
+  kisnaMain: [
     {
-      title: "Base Setup",
-      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
-      icon: SquareTerminal,
+      title: "Product Management",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+      icon: BookOpen,
       isActive: false,
       items: [
         {
-          title: "Base Many To One",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.aBaseManyToOneRoute.aListRoute,
+          title: "Product",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
         },
         {
-          title: "Base Many To Many",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.bBaseManyToManyRoute.aListRoute,
+          title: "Category",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.bCategoryRoute.aListRoute,
         },
         {
-          title: "Base",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
-        },
-        {
-          title: "Base One To One",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.dBaseOneToOneRoute.aListRoute,
-        },
-        {
-          title: "Base One To Many",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.eBaseOneToManyRoute.aListRoute,
+          title: "Tag",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.cTagRoute.aListRoute,
         },
       ],
     },
+  ],
+  administration: [
     {
       title: "User Administration",
       url: "#",
@@ -183,24 +182,32 @@ const data = {
     //   ],
     // },
   ],
-  cProductManagement: [
+  forDeveloper: [
     {
-      title: "Product Management",
-      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+      title: "Base Setup",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
       icon: SquareTerminal,
       isActive: false,
       items: [
         {
-          title: "Product",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+          title: "Base Many To One",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.aBaseManyToOneRoute.aListRoute,
         },
         {
-          title: "Category",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.bCategoryRoute.aListRoute,
+          title: "Base Many To Many",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.bBaseManyToManyRoute.aListRoute,
         },
         {
-          title: "Tag",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.cTagRoute.aListRoute,
+          title: "Base",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.cBaseRoute.aListRoute,
+        },
+        {
+          title: "Base One To One",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.dBaseOneToOneRoute.aListRoute,
+        },
+        {
+          title: "Base One To Many",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aBaseSetupRoute.eBaseOneToManyRoute.aListRoute,
         },
       ],
     },
@@ -226,14 +233,47 @@ const data = {
 }
 
 export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.ComponentProps<typeof Sidebar> & { ReduxCall?: any,APICall?: any, navigate?: any })) {
+  // JSX
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        {/* <TeamSwitcher teams={data.teams} /> */}
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <Link to={fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute} >
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
+                  <GalleryVerticalEnd className="size-4" />
+                  <img
+                    src={KisnaSmallGoldLogo}
+                    alt={"KisnaSmallGoldLogo"}
+                    className={cn(
+                      "h-[40px] object-fit transition-all hover:scale-105 w-auto hidden dark:block",
+                      "portrait"
+                    )}
+                  />
+                  <img
+                    src={KisnaSmallBlueLogo}
+                    alt={"KisnaSmallBlueLogo"}
+                    className={cn(
+                      "h-[40px] object-fit transition-all hover:scale-105 w-auto block dark:hidden",
+                      "portrait"
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-0.5 leading-none">
+                  <span className="font-semibold">KISNA - Admin</span>
+                  {/* <span className="">v1.0.0</span> */}
+                </div>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain header="For Developer" items={data.navMain} />
-        <NavMain header="Kisna Main" items={data.cProductManagement} />
+        <NavMain header="Kisna Main" items={data.kisnaMain} />
+        <NavMain header="Administration" items={data.administration} />
+        <NavMain header="For Developer" items={data.forDeveloper} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>

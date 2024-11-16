@@ -68,29 +68,32 @@ const SidebarAndHeaderComponent = ({ children }: { children: React.ReactNode }) 
                 <DropdownMenuTrigger asChild>
                   {
                     (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?._id ? (
-                      // <Link to={fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute} >
-                        <div className="flex items-center space-x-2">
-                          <Avatar>
-                            <AvatarImage src={"asdsadsad"} />
-                            <AvatarFallback>{getInitialsUtility(
-                              (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
-                              (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
-                            )}</AvatarFallback>
-                          </Avatar>
-                          <div className='hidden sm:block' >
+                      <div className="flex items-center space-x-2">
+                        <Avatar>
+                          <AvatarImage src={"asdsadsad"} />
+                          <AvatarFallback>{getInitialsUtility(
+                            (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname, 
+                            (ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname
+                          )}</AvatarFallback>
+                        </Avatar>
+                        <div className='hidden sm:block' >
+                          <div className="flex items-center flex-1 gap-1">
                             <p className="text-sm font-medium leading-none">{`
                               ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eFirstname} 
                               ${(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eLastname}
                             `}</p>
-                            <p className="text-xs text-muted-foreground">{(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eEmail}</p>
+                            <p className="text-xs font-medium text-muted-foreground">
+                              ({(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.cRole?.aTitle})
+                            </p>
                           </div>
+                          <p className="text-xs text-muted-foreground">{(ReduxCall.state.receivedObject as any)?.ProfileRetrieve?.eEmail}</p>
                         </div>
-                      // </Link>
+                      </div>
                     ) : (
-                    <Button variant="secondary" size="icon" className="rounded-full">
-                      <User2 className="h-5 w-5" />
-                      <span className="sr-only">Toggle user menu</span>
-                    </Button>
+                      <Button variant="secondary" size="icon" className="rounded-full">
+                        <User2 className="h-5 w-5" />
+                        <span className="sr-only">Toggle user menu</span>
+                      </Button>
                     )
                   }
                 </DropdownMenuTrigger>

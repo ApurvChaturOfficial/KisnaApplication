@@ -8,6 +8,8 @@ import { cn } from '@/aConnection/bShadcnConnection/lib/utils';
 import { Button } from '@/aConnection/bShadcnConnection/components/ui/button';
 import { Input } from '@/aConnection/bShadcnConnection/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/aConnection/bShadcnConnection/components/ui/form';
+import { RocketIcon } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/aConnection/bShadcnConnection/components/ui/alert';
 
 
 export type AuthFormPropsType = {
@@ -27,6 +29,7 @@ export type AuthFormPropsType = {
     data: {
       title: string,
       subtitle: string,
+      showSampleCredential: boolean
       inputs: {
         name: string,
         label: string,
@@ -72,6 +75,28 @@ const AuthFormComponent = ({ className, Redux, APICall, extras, token, ...props 
             {extras.data.subtitle || "Enter Subtitle"}
           </p>
         </div>
+        
+        {extras.data.showSampleCredential && <div>
+          <Alert>
+            <RocketIcon className="h-4 w-4" />
+            <AlertTitle>Sample User!</AlertTitle>
+            <AlertDescription>
+              <p><b>Email:</b> shraddha.kapoor@beehive.com</p> 
+              <p><b>Password:</b> Shraddha@123</p>
+              <p><b>Role:</b> Super Admin</p>
+            </AlertDescription>
+          </Alert>
+        </div>}
+
+
+        {/* <Alert>
+          <Terminal className="h-4 w-4" />
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>
+            You can add components to your app using the cli.
+          </AlertDescription>
+        </Alert> */}
+        
         <div className={cn("grid gap-6", className)} {...props}>
 
           <Form {...form}>
@@ -123,11 +148,11 @@ const AuthFormComponent = ({ className, Redux, APICall, extras, token, ...props 
               <span className="w-full border-t" />
             </div>
             {/* IMP COMMENT */}
-            {/* <div className="relative flex justify-center text-xs uppercase">
+            <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                Or continue with
+                Or if you
               </span>
-            </div> */}
+            </div>
           </div>
           
         </div>
