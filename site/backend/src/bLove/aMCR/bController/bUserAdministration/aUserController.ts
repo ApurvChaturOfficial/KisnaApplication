@@ -298,23 +298,23 @@ const userController = (Model=UserModel, Label="User") => ({
     const user = await Model.findById((request as any).user).select("+ePassword");
 
     // Not Found
-    if (!user) next(new ErrorUtility(`${Label} Not Found`, 404))
+    if (!user) return next(new ErrorUtility(`${Label} Not Found`, 404));
 
     // Check 1
-    if (!eOldPassword || !eNewPassword || !eConfirmPassword) next(new ErrorUtility("Please enter old password, new password and confirm password", 400))
+    if (!eOldPassword || !eNewPassword || !eConfirmPassword) return next(new ErrorUtility("Please enter old password, new password and confirm password", 400));
 
     // Check 2
-    if (eOldPassword === eNewPassword)  next(new ErrorUtility("New password connot be same as old password", 404));
+    if (eOldPassword === eNewPassword) return next(new ErrorUtility("New password connot be same as old password", 404));
 
     // Check 3
-    if (eNewPassword !== eConfirmPassword)  next(new ErrorUtility("Please match both password", 400));
+    if (eNewPassword !== eConfirmPassword) return next(new ErrorUtility("Please match both password", 400));
 
     // Match Password 1
     const isPasswordMatched1 = await (user as any).comparePassword(eOldPassword)
 
     // Not Matched
     if (!isPasswordMatched1) {
-      next(new ErrorUtility("Old password is incorrect", 401))
+      return next(new ErrorUtility("Old password is incorrect", 401))
     }
 
     // // Match Password 2

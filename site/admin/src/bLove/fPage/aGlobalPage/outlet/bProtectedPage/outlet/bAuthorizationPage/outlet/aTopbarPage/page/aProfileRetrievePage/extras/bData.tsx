@@ -46,7 +46,8 @@ const data = (APICall: any) => {
                   title: "Relation Information",
                   subtitle: "In this section, you will see relation details, you will see relation details.",
                   values: [
-                    { label: "Menu", value: APICall.retrieveAPIResponse.data.user_profile_retrieve?.cRole?.cMenu, type: "special-checkbox", 
+                    { label: "Role", value: APICall.retrieveAPIResponse.data.user_profile_retrieve?.cRole?.aTitle, type: "normal" }, 
+                    { label: "Menu Permissions", value: APICall.retrieveAPIResponse.data.user_profile_retrieve?.cRole?.cMenu, type: "special-checkbox", 
                       columns: ['Menu Items', 'List', 'Create', 'Retrieve', 'Update', 'Delete' ],
                     },
                   ],  

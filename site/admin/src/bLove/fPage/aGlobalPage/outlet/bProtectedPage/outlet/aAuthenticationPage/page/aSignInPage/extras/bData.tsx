@@ -3,7 +3,7 @@ import fullRoute from "@/bLove/gRoute/bFullRoute";
 const data = {
   title: "Sign-in to your account",
   subtitle: "Enter your email and password to access account",
-  showSampleCredentials: true,
+  showSampleCredential: true,
   inputs: [
     { 
       name: "eEmail", 
