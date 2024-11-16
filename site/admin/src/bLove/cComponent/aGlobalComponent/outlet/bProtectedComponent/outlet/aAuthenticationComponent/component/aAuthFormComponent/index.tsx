@@ -81,7 +81,7 @@ const AuthFormComponent = ({ className, Redux, APICall, extras, token, ...props 
             <RocketIcon className="h-4 w-4" />
             <AlertTitle>Sample User!</AlertTitle>
             <AlertDescription>
-              <p><b>Email:</b> shraddha.kapoor@beehive.com</p> 
+              <p><b>Email:</b> shraddha.kapoor@kisna.com</p> 
               <p><b>Password:</b> Shraddha@123</p>
               <p><b>Role:</b> Super Admin</p>
             </AlertDescription>

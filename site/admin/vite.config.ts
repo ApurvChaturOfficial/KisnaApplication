@@ -10,7 +10,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
   manifest: {
     name: "Kisna",
     short_name: "Kisna",
-    description: "This a description for this app",
+    description: "Diamond & Gold Jewellery",
     icons: [
       {
         src: "/android-chrome-192x192.png",
@@ -35,8 +35,8 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
       //   purpose: "any maskable",
       // },
     ],
-    theme_color: "#171717",
-    background_color: "#e8ebf2",
+    theme_color: "#d5a26a",
+    background_color: "#262761",
     display: "standalone",
     scope: "/",
     start_url: "/",
