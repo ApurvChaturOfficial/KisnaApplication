@@ -25,7 +25,8 @@ const baseAPIEndpoint = apiConnection.injectEndpoints({
       query: (data) => ({
         url: `base/retrieve/${data.params._id}`,
         method: "GET",
-      })
+      }),
+      providesTags: (_result: any, _error: any, data: any) => [{ type: "baseRetrieve", id: data.params._id }],
     }),
 
     baseUpdateAPI: builder.mutation({
@@ -34,7 +35,10 @@ const baseAPIEndpoint = apiConnection.injectEndpoints({
         method: "PUT",
         body: data.body
       }),
-      invalidatesTags: ["baseList"]
+      invalidatesTags: (_result: any, _error: any, data: any) => [
+        { type: "baseList" },
+        { type: "baseRetrieve", id: data.params._id },
+      ],
     }),
 
     baseDeleteAPI: builder.mutation({
@@ -43,7 +47,10 @@ const baseAPIEndpoint = apiConnection.injectEndpoints({
         url: `base/delete/${data.params._id}`,
         method: "DELETE"
       }),
-      invalidatesTags: ["baseList"]
+      invalidatesTags: (_result: any, _error: any, data: any) => [
+        { type: "baseList" },
+        { type: "baseRetrieve", id: data.params._id },
+      ],
     }),
 
   })

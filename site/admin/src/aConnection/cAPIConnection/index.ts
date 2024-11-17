@@ -8,7 +8,9 @@ const apiConnection = createApi({
     credentials: "include"
   }),
   tagTypes: [
-    "baseManyToOneList", "baseManyToManyList", "baseList", "baseOneToOneList", "baseOneToManyList", 
+    "baseManyToOneList", "baseManyToManyList", 
+    "baseList", "baseRetrieve", 
+    "baseOneToOneList", "baseOneToManyList", 
     "MenuList", "RoleList", "UserList",
     "productList", "categoryList", "tagList", 
   ],
