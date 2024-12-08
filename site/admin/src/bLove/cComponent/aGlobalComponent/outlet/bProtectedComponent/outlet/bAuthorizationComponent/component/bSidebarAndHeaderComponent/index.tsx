@@ -15,7 +15,7 @@ import { BookmarkX, FolderKey, KeyRound, LogIn, LogOut, Rat, User2, UserPen, Use
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
-import userAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/aUserAPIEndpoints";
+import userAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/aUserAPIEndpoints";
 import apiResponseHandler from "@/bLove/cComponent/aGlobalComponent/outlet/aUnprotectedComponent/component/aHeaderComponent/extras/aAPIResponseHandler";
 
 

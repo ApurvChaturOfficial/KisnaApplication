@@ -9,7 +9,7 @@ const data = (APICall: any) => {
       title: "User List",
       subtitle: "Here's a list of your tasks for this month!",
       buttons: [
-        { label: "Create User", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.aUserRoute.bCreateRoute }
+        { label: "Create User", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.aUserRoute.bCreateRoute }
       ]
     },
     content: {

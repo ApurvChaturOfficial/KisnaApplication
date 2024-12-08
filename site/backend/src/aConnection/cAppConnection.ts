@@ -18,9 +18,17 @@ import { userRouter } from '../bLove/aMCR/cRoute/bUserAdministration/aUserRoute'
 import { roleRouter } from '../bLove/aMCR/cRoute/bUserAdministration/bRoleRoute'
 import { menuRouter } from '../bLove/aMCR/cRoute/bUserAdministration/cMenuRoute'
 
-import { productRouter } from '../bLove/aMCR/cRoute/cProductManagement/aProductRoute'
-import { categoryRouter } from '../bLove/aMCR/cRoute/cProductManagement/bCategoryRoute'
-import { tagRouter } from '../bLove/aMCR/cRoute/cProductManagement/cTagRoute'
+import { productRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/aProductRoute'
+import { categoryRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/bCategoryRoute'
+import { tagRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/cTagRoute'
+import { productVariantRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/dProductvariantRoute'
+import { optionRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/eOptionRoute'
+import { groupRouter } from '../bLove/aMCR/cRoute/cKisna/aProductManagement/fGroupRoute'
+
+import { questionRouter } from '../bLove/aMCR/cRoute/cHappify/aQuestionnaire/aQuestionRoute'
+import { factorRouter } from '../bLove/aMCR/cRoute/cHappify/aQuestionnaire/bFactorRoute'
+
+import { singleImageRouter } from '../bLove/aMCR/cRoute/zFreestyleSample/aSingleImageRoute'
 
 
 const appConnection = express();
@@ -54,6 +62,15 @@ appConnection.use("/api/v1/menu/", menuRouter);
 appConnection.use("/api/v1/product/", productRouter);
 appConnection.use("/api/v1/category/", categoryRouter);
 appConnection.use("/api/v1/tag/", tagRouter);
+appConnection.use("/api/v1/product-variant/", productVariantRouter);
+appConnection.use("/api/v1/option/", optionRouter);
+appConnection.use("/api/v1/group/", groupRouter);
+
+appConnection.use("/api/v1/question/", questionRouter);
+appConnection.use("/api/v1/factor/", factorRouter);
+
+appConnection.use('/api/v1/single-image/', singleImageRouter);
+
 
 // Error Middleware
 appConnection.use(errorMiddleware);

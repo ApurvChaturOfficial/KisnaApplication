@@ -9,7 +9,7 @@ const data = (APICall: any) => {
       title: "Role List",
       subtitle: "Here's a list of your tasks for this month!",
       buttons: [
-        { label: "Create Role", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.bRoleRoute.bCreateRoute }
+        { label: "Create Role", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.bRoleRoute.bCreateRoute }
       ]
     },
     content: {

@@ -36,7 +36,7 @@ const apiResponseHandler = {
           description: serverResponse.data.message,
         })
 
-        return navigate(fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.bRoleRoute.aListRoute)
+        return navigate(fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.bRoleRoute.aListRoute)
       }
 
       return;

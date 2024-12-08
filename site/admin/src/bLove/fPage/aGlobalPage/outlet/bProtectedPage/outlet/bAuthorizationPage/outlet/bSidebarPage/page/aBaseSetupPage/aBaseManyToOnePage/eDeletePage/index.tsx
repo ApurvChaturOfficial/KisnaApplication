@@ -7,7 +7,7 @@ import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
 
 import BaseManyToOneDeleteComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/aBaseSetupComponent/aBaseManyToOneComponent/eDeleteComponent";
-import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
+import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
 import data from "./extras/bData";
 
 

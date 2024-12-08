@@ -1,7 +1,7 @@
 import React from "react"
 import { useParams } from "react-router-dom";
 
-import userAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/aUserAPIEndpoints";
+import userAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/aUserAPIEndpoints";
 import ResetPasswordComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/aAuthenticationComponent/children/dResetPasswordComponent";
 
 import apiResponseHandler from "./extras/aAPIResponseHandler";

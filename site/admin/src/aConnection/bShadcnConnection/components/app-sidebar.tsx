@@ -1,14 +1,23 @@
 import * as React from "react"
 import {
+  Archive,
   AudioWaveform,
   BookOpen,
   Bot,
+  Building2,
+  CalendarRange,
   Command,
   Frame,
   GalleryVerticalEnd,
   Map,
+  MonitorPlay,
   PieChart,
+  ScrollText,
+  SquareAsterisk,
   SquareTerminal,
+  Store,
+  TrendingUp,
+  Warehouse,
 } from "lucide-react"
 
 import { NavMain } from "@/aConnection/bShadcnConnection/components/nav-main"
@@ -25,8 +34,8 @@ import {
   SidebarRail,
 } from "@/aConnection/bShadcnConnection/components/ui/sidebar"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
-import KisnaSmallGoldLogo from "@/bLove/hAsset/KisnaLogo/KisnaSmallGoldLogo.png";
-import KisnaSmallBlueLogo from "@/bLove/hAsset/KisnaLogo/KisnaSmallBlueLogo.png";
+import BrandSmallGoldLogo from "@/bLove/hAsset/BrandLogo/BrandSmallGoldLogo.png";
+import BrandSmallBlueLogo from "@/bLove/hAsset/BrandLogo/BrandSmallBlueLogo.png";
 import { Link } from "react-router-dom"
 import { cn } from "../lib/utils"
 
@@ -55,29 +64,251 @@ const data = {
       plan: "Company",
     },
   ],
-  kisnaMain: [
+
+  forDashboard: [
+    {
+      title: "Dashboards",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.zDashboardRoute.aDashboardRoute,
+      icon: BookOpen,
+      isActive: false,
+      items: [
+        {
+          title: "Kisna Dashboard",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.zDashboardRoute.aDashboardRoute,
+        },
+        {
+          title: "Happify Dashboard",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cHappifyRoute.zDashboardRoute.aDashboardRoute,
+        },
+        {
+          title: "Inventech Dashboard",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.zDashboardRoute.aDashboardRoute,
+        },
+      ],
+    },
+  ],
+
+  forKisna: [
     {
       title: "Product Management",
-      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.aProductRoute.aListRoute,
       icon: BookOpen,
       isActive: false,
       items: [
         {
           title: "Product",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.aProductRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.aProductRoute.aListRoute,
         },
         {
           title: "Category",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.bCategoryRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.bCategoryRoute.aListRoute,
         },
         {
           title: "Tag",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cProductManagementRoute.cTagRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.cTagRoute.aListRoute,
+        },
+        {
+          title: "Product Variant",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.dProductVariantRoute.aListRoute,
+        },
+        {
+          title: "Option",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.eOptionRoute.aListRoute,
+        },
+        {
+          title: "Group",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cKisnaRoute.aProductManagementRoute.fGroupRoute.aListRoute,
         },
       ],
     },
   ],
-  administration: [
+
+  forHappify: [
+    {
+      title: "Questionnaire",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cHappifyRoute.aQuestionnaireRoute.aQuestionRoute.aListRoute,
+      icon: BookOpen,
+      isActive: false,
+      items: [
+        {
+          title: "Question",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cHappifyRoute.aQuestionnaireRoute.aQuestionRoute.aListRoute,
+        },
+        {
+          title: "Factor",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cHappifyRoute.aQuestionnaireRoute.bFactorRoute.aListRoute,
+        },
+      ],
+    },
+  ],
+
+  forInvenTech: [
+    {
+      title: "Product Catalogue",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.aProductCatalogueRoute.aListRoute,
+      icon: SquareAsterisk,
+      isActive: false,
+      items: [
+        {
+          title: "List",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.aProductCatalogueRoute.aListRoute,
+        },
+        {
+          title: "Create",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.aProductCatalogueRoute.bCreateRoute,
+        },
+        {
+          title: "Retrieve",
+          url: `${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.aProductCatalogueRoute.cRetrieveRoute}/asdasd`,
+        },
+      ],
+    },
+    {
+      title: "Inventory & Stock",
+      url: "",
+      icon: Archive,
+      isActive: false,
+      items: [
+        {
+          title: "Sub Menu 1",
+          url: "",
+        },
+        {
+          title: "Sub Menu 2",
+          url: "",
+        },
+        {
+          title: "Sub Menu 3",
+          url: "",
+        },
+      ],
+    },
+    {
+      title: "Reports",
+      url: "",
+      icon: TrendingUp,
+      isActive: false,
+      items: [],
+    },
+    {
+      title: "Customer Orders",
+      url: "",
+      icon: MonitorPlay,
+      isActive: false,
+      items: [
+        {
+          title: "Sub Menu 1",
+          url: "",
+        },
+        {
+          title: "Sub Menu 2",
+          url: "",
+        },
+        {
+          title: "Sub Menu 3",
+          url: "",
+        },
+      ],
+    },
+    {
+      title: "Purchase Orders",
+      url: "",
+      icon: CalendarRange,
+      isActive: false,
+      items: [
+        {
+          title: "Sub Menu 1",
+          url: "",
+        },
+        {
+          title: "Sub Menu 2",
+          url: "",
+        },
+        {
+          title: "Sub Menu 3",
+          url: "",
+        },
+      ],
+    },
+    {
+      title: "Warehouse Management",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.bWarehouseManagementRoute.aListRoute,
+      icon: Warehouse,
+      isActive: false,
+      items: [
+        {
+          title: "List",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.bWarehouseManagementRoute.aListRoute,
+        },
+        {
+          title: "Create",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.bWarehouseManagementRoute.bCreateRoute,
+        },
+        {
+          title: "Retrieve",
+          url: `${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.bWarehouseManagementRoute.cRetrieveRoute}/sadsad`,
+        },
+      ],
+    },
+    {
+      title: "Store Management",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.cStoreManagementRoute.aListRoute,
+      icon: Store,
+      isActive: false,
+      items: [
+        {
+          title: "List",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.cStoreManagementRoute.aListRoute,
+        },
+        {
+          title: "Create",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.cStoreManagementRoute.bCreateRoute,
+        },
+        {
+          title: "Retrieve",
+          url: `${fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.cStoreManagementRoute.cRetrieveRoute}/sadsad`,
+        },
+      ],
+    },
+    {
+      title: "My Organization",
+      url: "",
+      icon: Building2,
+      isActive: false,
+      items: [
+        {
+          title: "Location",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.eLocationRoute.aListRoute,
+        },
+        {
+          title: "Departments",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.fDepartmentRoute.aListRoute,
+        },
+        {
+          title: "Employees",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.eLocationRoute.aListRoute,
+        },
+        {
+          title: "Role",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.eLocationRoute.aListRoute,
+        },
+      ],
+    },
+    {
+      title: "Activity Log",
+      url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.dActivityLogRoute.aListRoute,
+      icon: ScrollText,
+      isActive: false,
+      items: [
+        {
+          title: "List",
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.cInvenTechRoute.aOverallRoute.dActivityLogRoute.aListRoute,
+        },
+      ],
+    },
+  ],
+
+  forAdministration: [
     {
       title: "User Administration",
       url: "#",
@@ -85,15 +316,15 @@ const data = {
       items: [
         {
           title: "User",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.aUserRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.aUserRoute.aListRoute,
         },
         {
           title: "Role",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.bRoleRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.bRoleRoute.aListRoute,
         },
         {
           title: "Menu",
-          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.cMenuRoute.aListRoute,
+          url: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.cMenuRoute.aListRoute,
         },
       ],
     },
@@ -182,6 +413,7 @@ const data = {
     //   ],
     // },
   ],
+
   forDeveloper: [
     {
       title: "Base Setup",
@@ -212,6 +444,7 @@ const data = {
       ],
     },
   ],
+
 
   projects: [
     {
@@ -245,16 +478,16 @@ export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.Co
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
                   <GalleryVerticalEnd className="size-4" />
                   <img
-                    src={KisnaSmallGoldLogo}
-                    alt={"KisnaSmallGoldLogo"}
+                    src={BrandSmallGoldLogo}
+                    alt={"BrandSmallGoldLogo"}
                     className={cn(
                       "h-[40px] object-fit transition-all hover:scale-105 w-auto hidden dark:block",
                       "portrait"
                     )}
                   />
                   <img
-                    src={KisnaSmallBlueLogo}
-                    alt={"KisnaSmallBlueLogo"}
+                    src={BrandSmallBlueLogo}
+                    alt={"BrandSmallBlueLogo"}
                     className={cn(
                       "h-[40px] object-fit transition-all hover:scale-105 w-auto block dark:hidden",
                       "portrait"
@@ -271,8 +504,11 @@ export function AppSidebar({ ReduxCall, APICall, navigate, ...props }: (React.Co
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain header="Kisna Main" items={data.kisnaMain} />
-        <NavMain header="Administration" items={data.administration} />
+        <NavMain header="For Dashboard" items={data.forDashboard} />
+        <NavMain header="For Kisna" items={data.forKisna} />
+        <NavMain header="For Happify" items={data.forHappify} />
+        <NavMain header="For Inventech" items={data.forInvenTech} />
+        <NavMain header="For Administration" items={data.forAdministration} />
         <NavMain header="For Developer" items={data.forDeveloper} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>

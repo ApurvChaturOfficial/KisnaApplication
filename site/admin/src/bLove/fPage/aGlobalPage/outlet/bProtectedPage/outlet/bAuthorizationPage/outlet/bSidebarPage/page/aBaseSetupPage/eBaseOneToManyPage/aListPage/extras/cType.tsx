@@ -15,7 +15,7 @@ import { Badge } from "@/aConnection/bShadcnConnection/components/ui/badge"
 import { Checkbox } from "@/aConnection/bShadcnConnection/components/ui/checkbox"
 
 import { DataTableColumnHeader } from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/component/aTypicalListComponent/components/data-table-column-header"
-import { DataTableRowActions } from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/bDataListComponent/components/data-table-row-actions2"
+import { DataTableRowActions } from "@/bLove/cComponent/zOpenFreestyleComponent/bDataListComponent/components/data-table-row-actions2"
 
 
 export const labels = [

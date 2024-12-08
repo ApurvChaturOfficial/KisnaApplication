@@ -12,6 +12,7 @@ const apiResponseHandler = {
       const serverResponse = await createAPITrigger({ 
         params: { _id: params.id },
         body: {
+          aImage: data.aImage,
           aTitle: data.aTitle,
           aSubtitle: data.aSubtitle,
           aDescription: data.aDescription,

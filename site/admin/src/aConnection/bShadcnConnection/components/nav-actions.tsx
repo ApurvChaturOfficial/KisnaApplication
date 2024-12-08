@@ -120,12 +120,17 @@ export function NavActions() {
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="hidden font-medium text-muted-foreground md:inline-block">
-        {time.toLocaleDateString(undefined, {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}{" "}{time.toLocaleTimeString()}
+        <div className="text-right text-xs" >
+          {time.toLocaleDateString(undefined, {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </div>
+        <div className="text-right text-xs" >
+          {time.toLocaleTimeString()}
+        </div>
       </div>
       {/* <Button variant="ghost" size="icon" className="h-7 w-7">
         <Star />

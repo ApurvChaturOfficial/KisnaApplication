@@ -1,6 +1,6 @@
 import React from "react"
 
-import userAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/aUserAPIEndpoints";
+import userAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/aUserAPIEndpoints";
 import ForgotPasswordComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/aAuthenticationComponent/children/cForgotPasswordComponent";
 
 import apiResponseHandler from "./extras/aAPIResponseHandler";

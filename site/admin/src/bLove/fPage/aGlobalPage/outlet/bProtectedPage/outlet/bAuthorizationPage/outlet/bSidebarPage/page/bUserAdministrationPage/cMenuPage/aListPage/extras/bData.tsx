@@ -9,7 +9,7 @@ const data = (APICall: any) => {
       title: "Menu List",
       subtitle: "Here's a list of your tasks for this month!",
       buttons: [
-        { label: "Create Menu", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministration.cMenuRoute.bCreateRoute }
+        { label: "Create Menu", to: fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.bUserAdministrationRoute.cMenuRoute.bCreateRoute }
       ]
     },
     content: {

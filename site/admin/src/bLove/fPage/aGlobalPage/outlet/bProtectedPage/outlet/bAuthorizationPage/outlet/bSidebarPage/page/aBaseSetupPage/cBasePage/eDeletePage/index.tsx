@@ -7,7 +7,7 @@ import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
 
 import BaseDeleteComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/aBaseSetupComponent/cBaseComponent/eDeleteComponent";
-import baseAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/cBaseAPIEndpoints";
+import baseAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/cBaseAPIEndpoints";
 import data from "./extras/bData";
 
 

@@ -1,8 +1,8 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 
-import baseAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/cBaseAPIEndpoints";
-import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
+import baseAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/cBaseAPIEndpoints";
+import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
 import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiServerResponseHandler from "./extras/aAPIResponseHandler";

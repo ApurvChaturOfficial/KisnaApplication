@@ -2,11 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import baseAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/cBaseAPIEndpoints";
-import baseOneToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/dBaseOneToOneAPIEndpoints";
-import baseOneToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/eBaseOneToManyAPIEndpoints";
-import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
-import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
+import baseAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/cBaseAPIEndpoints";
+import baseOneToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/dBaseOneToOneAPIEndpoints";
+import baseOneToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/eBaseOneToManyAPIEndpoints";
+import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
+import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import { RootState } from "@/aConnection/dReduxConnection";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
@@ -72,6 +72,7 @@ const BaseUpdatePage = () => {
             cBaseManyToMany: [],
           },
           previousValue: (form: any) => (
+            form.setValue("aImage", APICall.retrieveAPIResponse.data.retrieve?.aImage),
             form.setValue("aTitle", APICall.retrieveAPIResponse.data.retrieve?.aTitle),
             form.setValue("aSubtitle", APICall.retrieveAPIResponse.data.retrieve?.aSubtitle),
             form.setValue("aDescription", APICall.retrieveAPIResponse.data.retrieve?.aDescription),

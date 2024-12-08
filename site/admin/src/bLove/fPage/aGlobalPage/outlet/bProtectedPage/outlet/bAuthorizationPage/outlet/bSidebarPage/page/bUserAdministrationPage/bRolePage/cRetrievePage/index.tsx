@@ -2,7 +2,7 @@ import React from "react"
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import roleAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/bRoleAPIEndpoints";
+import roleAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/bRoleAPIEndpoints";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import { RootState } from "@/aConnection/dReduxConnection";
 import apiResponseHandler from "./extras/aAPIResponseHandler";

@@ -6,7 +6,7 @@ import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiResponseHandler from "./extras/aAPIResponseHandler";
 
-import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
+import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
 import BaseManyToManyDeleteComponent from "@/bLove/cComponent/aGlobalComponent/outlet/bProtectedComponent/outlet/bAuthorizationComponent/outlet/bSidebarComponent/children/aBaseSetupComponent/bBaseManyToManyComponent/eDeleteComponent";
 import data from "./extras/bData";
 

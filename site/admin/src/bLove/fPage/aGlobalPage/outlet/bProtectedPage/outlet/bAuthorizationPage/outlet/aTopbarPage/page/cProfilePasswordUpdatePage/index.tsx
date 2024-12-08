@@ -4,7 +4,7 @@ import ProfilePasswordUpdateComponent from "@/bLove/cComponent/aGlobalComponent/
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
-import userAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/aUserAPIEndpoints";
+import userAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/aUserAPIEndpoints";
 import data from "./extras/bData";
 import { formSchema } from "./extras/cType";
 import apiResponseHandler from "./extras/aAPIResponseHandler";

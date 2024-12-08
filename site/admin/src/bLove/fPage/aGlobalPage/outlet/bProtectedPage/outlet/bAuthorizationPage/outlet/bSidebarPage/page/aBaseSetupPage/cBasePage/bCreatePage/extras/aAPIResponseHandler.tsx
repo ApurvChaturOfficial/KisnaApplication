@@ -9,6 +9,7 @@ const apiResponseHandler = {
   createAPIResponseHandler: async (data: z.infer<typeof formSchema>, createAPITrigger: any, form: any, navigate: NavigateFunction) => {
     try {
       const serverResponse = await createAPITrigger({ body: {
+        aImage: data.aImage,
         aTitle: data.aTitle,
         aSubtitle: data.aSubtitle,
         aDescription: data.aDescription,

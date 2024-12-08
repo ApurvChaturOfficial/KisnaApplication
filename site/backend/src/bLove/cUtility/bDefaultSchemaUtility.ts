@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import timezone from 'moment-timezone';
 
 export type DefaultSchemaUtilityType = mongoose.Document & {
-  aImage?: string;
+  aImage?: object;
   aTitle?: string;
   aSubtitle?: string;
   aDescription?: string;
@@ -17,7 +17,7 @@ export type DefaultSchemaUtilityType = mongoose.Document & {
 };
 
 const schema = new mongoose.Schema<DefaultSchemaUtilityType>({
-  aImage: { type: String, trim: true },
+  aImage: { type: Object, trim: true },
   aTitle: { type: String, trim: true },
   aSubtitle: { type: String, trim: true },
   aDescription: { type: String, trim: true },

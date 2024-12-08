@@ -55,7 +55,7 @@ const data = (APICall: any) => {
                                 APICall.menuListAPIResponse.data.list.length > 0 ? (
                                   APICall.menuListAPIResponse.data.list.map((each: any) => ({
                                     value: each._id, id: each._id, label: each.aTitle
-                                  })).reverse()
+                                  }))
                                 ) : []
                               ) : []
                             ) : []

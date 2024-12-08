@@ -2,6 +2,10 @@ import { z } from "zod";
 
 
 export const formSchema = z.object({
+  aImage: z.object({
+    pid: z.string(),
+    url: z.string()
+  }),
   aTitle: z.string()
     .min(3, { message: "Please enter atlest 3 characters" })
     .max(50, { message: "Please enter atmost 50 characters" }),

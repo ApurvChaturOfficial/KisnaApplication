@@ -1,7 +1,7 @@
 import React from "react"
 
-import KisnaMediumGoldLogo from "@/bLove/hAsset/KisnaLogo/KisnaMediumGoldLogo.png";
-import KisnaMediumBlueLogo from "@/bLove/hAsset/KisnaLogo/KisnaMediumBlueLogo.png";
+import BrandMediumGoldLogo from "@/bLove/hAsset/BrandLogo/BrandMediumGoldLogo.png";
+import BrandMediumBlueLogo from "@/bLove/hAsset/BrandLogo/BrandMediumBlueLogo.png";
 import { cn } from "@/aConnection/bShadcnConnection/lib/utils";
 import { useNavigate } from "react-router-dom";
 import fullRoute from "@/bLove/gRoute/bFullRoute";
@@ -21,16 +21,16 @@ const AuthenticationComponent = ({ children }: { children: React.ReactNode }) =>
           <div className="relative z-20 flex items-center text-lg font-medium">
             <div onClick={() => navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)} >
               <img
-                src={KisnaMediumGoldLogo}
-                alt={"KisnaMediumGoldLogo"}
+                src={BrandMediumGoldLogo}
+                alt={"BrandMediumGoldLogo"}
                 className={cn(
                   "h-[40px] object-fit transition-all hover:scale-105 w-auto hidden dark:block",
                   "portrait"
                 )}
               />
               <img
-                src={KisnaMediumBlueLogo}
-                alt={"KisnaMediumBlueLogo"}
+                src={BrandMediumBlueLogo}
+                alt={"BrandMediumBlueLogo"}
                 className={cn(
                   "h-[40px] object-fit transition-all hover:scale-105 w-auto block dark:hidden",
                   "portrait"

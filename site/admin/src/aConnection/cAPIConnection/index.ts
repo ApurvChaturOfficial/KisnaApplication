@@ -8,11 +8,25 @@ const apiConnection = createApi({
     credentials: "include"
   }),
   tagTypes: [
-    "baseManyToOneList", "baseManyToManyList", 
-    "baseList", "baseRetrieve", 
-    "baseOneToOneList", "baseOneToManyList", 
-    "MenuList", "RoleList", "UserList",
-    "productList", "categoryList", "tagList", 
+    "baseManyToOneList",   "baseManyToOneRetrieve", 
+    "baseManyToManyList",  "baseManyToManyRetrieve", 
+    "baseList",            "baseRetrieve", 
+    "baseOneToOneList",    "baseOneToOneRetrieve", 
+    "baseOneToManyList",   "baseOneToManyRetrieve", 
+
+    "menuList",            "menuRetrieve", 
+    "roleList",            "roleRetrieve", 
+    "userList",            "userRetrieve",
+
+    "productList",         "productRetrieve", 
+    "categoryList",        "categoryRetrieve", 
+    "tagList",             "tagRetrieve", 
+    "productVariantList",  "productVariantRetrieve", 
+    "optionList",          "optionRetrieve", 
+    "groupList",           "groupRetrieve", 
+
+    "questionList",        "questionRetrieve", 
+    "factorList",          "factorRetrieve", 
   ],
   endpoints: () => ({})
 })

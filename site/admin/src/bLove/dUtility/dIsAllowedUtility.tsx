@@ -20,9 +20,19 @@ const menuListUtility = {
   role: "Role",
   menu: "Menu",
 
-  product: "Product",
-  category: "Category",
-  tag: "Tag",
+  kisna: {
+    product: "Product",
+    category: "Category",
+    tag: "Tag",
+    productVariant: "Product Variant",
+    option: "Option",
+    group: "Group",
+  },
+
+  happify: {
+    question: "Question",
+    factor: "Factor",
+  },
 }
 
 const NoAccessMessageUtility = () => (

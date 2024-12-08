@@ -1,10 +1,8 @@
 import React, { useEffect } from "react"
-
 import { z } from "zod"
 import { useNavigate } from "react-router-dom"
 import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-
 
 import { 
   Form, 
@@ -33,13 +31,26 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
 import { Label } from "@/aConnection/bShadcnConnection/components/ui/label"
 
+import ProductVariantFormComponent from "./component/aProductVariantComponent"
+import SingleImageUploadComponent from "./component/bSingleImageUploadComponent"
+
 
 type TypicalCreateComponentType = {
   ReduxCall: any
   APICall: {
     createAPITrigger: any,
     createAPIResponse: any,
-    specialListAPIResponse?: any
+
+    specialListAPIResponse?: any,
+    
+    special1CreateAPITrigger?: any,
+    special1CreateAPIResponse?: any,
+    
+    special2CreateAPITrigger?: any,
+    special2CreateAPIResponse?: any,
+    
+    special3CreateAPITrigger?: any,
+    special3CreateAPIResponse?: any,
   }
   extras: {
     apiResponseHandler: {
@@ -66,14 +77,6 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
     defaultValues: extras.formDefaultValue
   })
 
-  // Watch the entire form data
-  const watchedData = form.watch(); // This will trigger on every form change
-
-  // Log watched data to console
-  useEffect(() => {
-    console.log("Current form data:", watchedData);
-  }, [watchedData]); // Re-run this effect whenever form data changes
-
   // Submit Handler
   const onSubmit = async (data: z.infer<typeof extras.formSchema>) => {
     console.log(data)
@@ -87,8 +90,11 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
       ),
     })
 
-    extras.apiResponseHandler.createAPIResponseHandler(data, APICall.createAPITrigger, form, navigate)
-    // extras.apiResponseHandler.createAPIResponseHandler(data, ReduxCall, APICall.createAPITrigger, form, navigate)
+    extras.apiResponseHandler.createAPIResponseHandler(data, APICall.createAPITrigger, form, navigate, {
+      special1CreateAPITrigger: APICall.special1CreateAPITrigger,
+      special2CreateAPITrigger: APICall.special2CreateAPITrigger,
+      special3CreateAPITrigger: APICall.special3CreateAPITrigger
+    })
   } 
   
   // All Render
@@ -107,11 +113,15 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
     }
   }, [APICall.specialListAPIResponse])    
 
+  // Extra Render
+  useEffect(() => {
+    console.log("Current form data:", form.watch());
+  }, [form.watch()]); 
 
   // JSX
   return (
     <React.Fragment>
-      <div className="flex-1 lg:max-w-2xl">
+      <div className="flex-1">
         <div className="mb-8" >
           <h2 className="text-3xl font-bold tracking-tight">{extras.data.header.title}</h2>
           <p className="text-muted-foreground">
@@ -152,6 +162,13 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                         </div>
                       )}
   
+                      {/* For I/P Type: Single Image File */}
+                      {((eachInput.type === "single-image-file") && 
+                        <React.Fragment key={indexInput} >
+                          <SingleImageUploadComponent form={form} eachInput={eachInput} />
+                        </React.Fragment>
+                      )}
+
                       {/* For I/P Type: Textarea */}
                       {((eachInput.type === "textarea") && 
                         <div className="grid gap-3" key={indexInput} >
@@ -353,6 +370,13 @@ const TypicalCreateComponent = (props: TypicalCreateComponentType) => {
                             <ScrollBar orientation="horizontal" />
                           </ScrollArea>
                         </div>
+                      )}
+
+                      {/* For I/P Type: Special Options and Variant Fields */}
+                      {((eachInput.type === "special-product-variant") && 
+                        <React.Fragment key={indexInput} >
+                          <ProductVariantFormComponent form={form} />
+                        </React.Fragment>
                       )}
 
                     </React.Fragment>

@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom"
 
 import getInitialsUtility from "@/bLove/dUtility/aGetInitialsUtility"
 import fullRoute from "@/bLove/gRoute/bFullRoute"
-import KisnaMediumGoldLogo from "@/bLove/hAsset/KisnaLogo/KisnaMediumGoldLogo.png";
-import KisnaMediumBlueLogo from "@/bLove/hAsset/KisnaLogo/KisnaMediumBlueLogo.png";
-import userAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/aUserAPIEndpoints"
+import BrandMediumGoldLogo from "@/bLove/hAsset/BrandLogo/BrandMediumGoldLogo.png";
+import BrandMediumBlueLogo from "@/bLove/hAsset/BrandLogo/BrandMediumBlueLogo.png";
+import userAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/aUserAPIEndpoints"
 import apiResponseHandler from "./extras/aAPIResponseHandler"
 
 import {
@@ -62,8 +62,8 @@ const HeaderComponent = () => {
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           {/* Important Comment */}
           {/* <img
-            src={KisnaLogo}
-            alt={"KisnaLogo"}
+            src={BrandLogo}
+            alt={"BrandLogo"}
             className={cn(
               "h-auto object-fit transition-all hover:scale-105 w-[35px]",
               "aspect-square"
@@ -71,8 +71,8 @@ const HeaderComponent = () => {
             onClick={() => navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)}
           /> */}
           <img
-            src={KisnaMediumGoldLogo}
-            alt={"KisnaMediumGoldLogo"}
+            src={BrandMediumGoldLogo}
+            alt={"BrandMediumGoldLogo"}
             className={cn(
               "h-[40px] object-fit transition-all hover:scale-105 w-auto hidden dark:block",
               "portrait"
@@ -80,8 +80,8 @@ const HeaderComponent = () => {
             onClick={() => navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)}
           />
           <img
-            src={KisnaMediumBlueLogo}
-            alt={"KisnaMediumBlueLogo"}
+            src={BrandMediumBlueLogo}
+            alt={"BrandMediumBlueLogo"}
             className={cn(
               "h-[40px] object-fit transition-all hover:scale-105 w-auto block dark:hidden",
               "portrait"
@@ -120,8 +120,8 @@ const HeaderComponent = () => {
                 className="flex items-center gap-2 text-lg font-semibold"
               >
                 <img
-                  src={KisnaMediumGoldLogo}
-                  alt={"KisnaMediumGoldLogo"}
+                  src={BrandMediumGoldLogo}
+                  alt={"BrandMediumGoldLogo"}
                   className={cn(
                     "h-[40px] object-fit transition-all hover:scale-105 w-auto hidden dark:block",
                     "portrait"
@@ -129,8 +129,8 @@ const HeaderComponent = () => {
                   onClick={() => navigate(fullRoute.aGlobalRoute.aUnprotectedRoute.aHomeRoute)}
                 />
                 <img
-                  src={KisnaMediumBlueLogo}
-                  alt={"KisnaMediumBlueLogo"}
+                  src={BrandMediumBlueLogo}
+                  alt={"BrandMediumBlueLogo"}
                   className={cn(
                     "h-[40px] object-fit transition-all hover:scale-105 w-auto block dark:hidden",
                     "portrait"
@@ -140,7 +140,7 @@ const HeaderComponent = () => {
                 <span className="sr-only">{brandConnection.brandName} - Admin</span>
               </Link>
               <Link 
-                to={fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute.aDashboardRoute} 
+                to={"fullRoute.aGlobalRoute.bProtectedRoute.bAuthorizationRoute.bSidebarRoute."} 
                 className="hover:text-foreground"
               >
                 Dashboard

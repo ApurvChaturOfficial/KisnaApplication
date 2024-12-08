@@ -8,7 +8,7 @@ type RoleCreateComponentType = {
   APICall: {
     createAPITrigger: any,
     createAPIResponse: any,
-    specialListAPIResponse: any,
+    specialListAPIResponse?: any,
   }
   extras: {
     apiResponseHandler: {

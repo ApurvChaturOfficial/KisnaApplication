@@ -1,7 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 
-import menuAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/bUserAdministration/cMenuAPIEndpoints";
+import menuAPIEndpoint from "@/bLove/aAPI/bUserAdministrationAPI/cMenuAPIEndpoints";
 import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiServerResponseHandler from "./extras/aAPIResponseHandler";

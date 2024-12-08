@@ -2,7 +2,7 @@ import React from "react"
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
+import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import { RootState } from "@/aConnection/dReduxConnection";
 import apiResponseHandler from "./extras/aAPIResponseHandler";

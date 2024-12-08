@@ -1,11 +1,11 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 
-import baseAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/cBaseAPIEndpoints";
-import baseOneToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/dBaseOneToOneAPIEndpoints";
-import baseOneToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/eBaseOneToManyAPIEndpoints";
-import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
-import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aGlobalAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
+import baseAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/cBaseAPIEndpoints";
+import baseOneToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/dBaseOneToOneAPIEndpoints";
+import baseOneToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/eBaseOneToManyAPIEndpoints";
+import baseManyToOneAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/aBaseManyToOneAPIEndpoints";
+import baseManyToManyAPIEndpoint from "@/bLove/aAPI/aBaseSetupAPI/bBaseManyToManyAPIEndpoints";
 import { RootState } from "@/aConnection/dReduxConnection";
 import globalSlice from "@/bLove/bRedux/aGlobalSlice";
 import apiServerResponseHandler from "./extras/aAPIResponseHandler";
@@ -52,6 +52,7 @@ const BaseCreatePage = () => {
           data: data(APICall),
           formSchema: formSchema,
           formDefaultValue: {
+            aImage: "",
             aTitle: "",
             aSubtitle: "",
             aDescription: "",

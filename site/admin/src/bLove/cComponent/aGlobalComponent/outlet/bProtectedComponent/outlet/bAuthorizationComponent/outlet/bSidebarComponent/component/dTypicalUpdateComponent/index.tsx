@@ -32,6 +32,7 @@ import { toast } from "@/aConnection/bShadcnConnection/hooks/use-toast"
 import { Label } from "@/aConnection/bShadcnConnection/components/ui/label"
 import { ScrollArea, ScrollBar } from "@/aConnection/bShadcnConnection/components/ui/scroll-area"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/aConnection/bShadcnConnection/components/ui/table"
+import SingleImageUploadComponent from "./component/bSingleImageUploadComponent"
 
 
 type TypicalUpdateComponentType = {
@@ -156,7 +157,14 @@ const TypicalUpdateComponent = (props: TypicalUpdateComponentType) => {
                                         />
                                       </div>
                                     )}
-                
+
+                                    {/* For I/P Type: Single Image File */}
+                                    {((eachInput.type === "single-image-file") && 
+                                      <React.Fragment key={indexInput} >
+                                        <SingleImageUploadComponent form={form} eachInput={eachInput} />
+                                      </React.Fragment>
+                                    )}
+
                                     {/* For I/P Type: Textarea */}
                                     {((eachInput.type === "textarea") && 
                                       <div className="grid gap-3" key={indexInput} >

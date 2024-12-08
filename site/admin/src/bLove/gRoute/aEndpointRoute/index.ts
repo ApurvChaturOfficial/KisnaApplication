@@ -18,12 +18,6 @@ const endpointRoute = {
           dProfileDeleteRoute: "profile-delete",
         },
         bSidebarRoute: {
-          aDashboardRoute: "dashboard",
-          bDataListRoute: "data-list",
-          cDataFormRoute: "data-form",
-          dDataFormTwoRoute: "data-form-two",
-          eDataCardRoute: "data-card",
-
           aBaseSetupRoute: {
             aBaseManyToOneRoute: {
               aListRoute: "base-many-to-one-list",
@@ -62,7 +56,7 @@ const endpointRoute = {
             },
           },
 
-          bUserAdministration: {
+          bUserAdministrationRoute: {
             aUserRoute: {
               aListRoute: "user-list",
               bCreateRoute: "user-create",
@@ -86,29 +80,120 @@ const endpointRoute = {
             },
           },
 
-          cProductManagementRoute: {
-            aProductRoute: {
-              aListRoute: "product-list",
-              bCreateRoute: "product-create",
-              cRetrieveRoute: "product-retrieve",
-              dUpdateRoute: "product-update",
-              eDeleteRoute: "product-delete",
+          cKisnaRoute: {
+            aProductManagementRoute: {
+              aProductRoute: {
+                aListRoute: "product-list",
+                bCreateRoute: "product-create",
+                cRetrieveRoute: "product-retrieve",
+                dUpdateRoute: "product-update",
+                eDeleteRoute: "product-delete",
+              },
+              bCategoryRoute: {
+                aListRoute: "category-list",
+                bCreateRoute: "category-create",
+                cRetrieveRoute: "category-retrieve",
+                dUpdateRoute: "category-update",
+                eDeleteRoute: "category-delete",
+              },
+              cTagRoute: {
+                aListRoute: "tag-list",
+                bCreateRoute: "tag-create",
+                cRetrieveRoute: "tag-retrieve",
+                dUpdateRoute: "tag-update",
+                eDeleteRoute: "tag-delete",
+              },
+              dProductVariantRoute: {
+                aListRoute: "product-variant-list",
+                bCreateRoute: "product-variant-create",
+                cRetrieveRoute: "product-variant-retrieve",
+                dUpdateRoute: "product-variant-update",
+                eDeleteRoute: "product-variant-delete",
+              },
+              eOptionRoute: {
+                aListRoute: "option-list",
+                bCreateRoute: "option-create",
+                cRetrieveRoute: "option-retrieve",
+                dUpdateRoute: "option-update",
+                eDeleteRoute: "option-delete",
+              },
+              fGroupRoute: {
+                aListRoute: "group-list",
+                bCreateRoute: "group-create",
+                cRetrieveRoute: "group-retrieve",
+                dUpdateRoute: "group-update",
+                eDeleteRoute: "group-delete",
+              },
             },
-            bCategoryRoute: {
-              aListRoute: "category-list",
-              bCreateRoute: "category-create",
-              cRetrieveRoute: "category-retrieve",
-              dUpdateRoute: "category-update",
-              eDeleteRoute: "category-delete",
-            },
-            cTagRoute: {
-              aListRoute: "tag-list",
-              bCreateRoute: "tag-create",
-              cRetrieveRoute: "tag-retrieve",
-              dUpdateRoute: "tag-update",
-              eDeleteRoute: "tag-delete",
-            },
+
+            zDashboardRoute: {
+              aDashboardRoute: "kisna-dashboard"
+            }
           },
+
+          cHappifyRoute: {
+            aQuestionnaireRoute: {
+              aQuestionRoute: {
+                aListRoute: "question-list",
+                bCreateRoute: "question-create",
+                cRetrieveRoute: "question-retrieve",
+                dUpdateRoute: "question-update",
+                eDeleteRoute: "question-delete",
+              },
+              bFactorRoute: {
+                aListRoute: "factor-list",
+                bCreateRoute: "factor-create",
+                cRetrieveRoute: "factor-retrieve",
+                dUpdateRoute: "factor-update",
+                eDeleteRoute: "factor-delete",
+              },
+            },
+
+            zDashboardRoute: {
+              aDashboardRoute: "happify-dashboard"
+            }
+          },
+
+          cInvenTechRoute: {
+            aOverallRoute: {
+              aProductCatalogueRoute: {
+                aListRoute: "product-catalogue-list",
+                bCreateRoute: "product-catalogue-create",
+                cRetrieveRoute: "product-catalogue-retrieve",
+              },
+              bWarehouseManagementRoute: {
+                aListRoute: "warehouse-management-list",
+                bCreateRoute: "warehouse-management-create",
+                cRetrieveRoute: "warehouse-management-retrieve",
+              },
+              cStoreManagementRoute: {
+                aListRoute: "store-management-list",
+                bCreateRoute: "store-management-create",
+                cRetrieveRoute: "store-management-retrieve",
+              },
+              dActivityLogRoute: {
+                aListRoute: "activity-log-list",
+              },
+              eLocationRoute: {
+                aListRoute: "location-list",
+              },
+              fDepartmentRoute: {
+                aListRoute: "department-list",
+                bCreateRoute: "department-create",
+                cRetrieveRoute: "department-retrieve",
+              },
+              gOpenPurchaseOrderRoute: {
+                aListRoute: "open-purchase-order-list",
+                bCreateRoute: "open-purchase-order-create",
+                cRetrieveRoute: "open-purchase-order-retrieve",
+              },
+            },
+
+            zDashboardRoute: {
+              aDashboardRoute: "inventech-dashboard"
+            }
+          },
+
         }
       }
     }

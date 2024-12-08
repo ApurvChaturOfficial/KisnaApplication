@@ -1,3 +1,8 @@
+import singleImageCreateHandleChangeUtility from "@/bLove/dUtility/eSingleImageCreateHandleChangeUtility"
+import singleImageUpdateHandleChangeUtility from "@/bLove/dUtility/fSingleImageUpdateHandleChangeUtility"
+import singleImageDeleteHandleChangeUtility from "@/bLove/dUtility/gSingleImageDeleteHandleChangeUtility"
+
+
 const data = (APICall: any) => {
   return ({
     header: {
@@ -17,6 +22,11 @@ const data = (APICall: any) => {
                   title: "Basic Information",
                   subtitle: "In this section, please enter title, subtitle, description, etc.",
                   inputs: [
+                    { name: "aImage", label: "Image", type: "single-image-file",
+                      onChange: (event: any, form: any, fieldName: string) => singleImageCreateHandleChangeUtility(event, form, "kisna_base", fieldName),
+                      onUpdate: (event: any, form: any, fieldName: string, publicID: string) => singleImageUpdateHandleChangeUtility(event, form, "kisna_base", fieldName, publicID),
+                      onDelete: (event: any, form: any, fieldName: string, publicID: string) => singleImageDeleteHandleChangeUtility(event, form, "kisna_base", fieldName, publicID),
+                    },        
                     { name: "aTitle", label: "Title", type: "text", placeholder: "Please enter title..." },
                     { name: "aSubtitle", label: "Subtitle", type: "text", placeholder: "Please enter subtitle..." },
                     { name: "aDescription", label: "Description", type: "textarea", placeholder: "Please enter description..." },

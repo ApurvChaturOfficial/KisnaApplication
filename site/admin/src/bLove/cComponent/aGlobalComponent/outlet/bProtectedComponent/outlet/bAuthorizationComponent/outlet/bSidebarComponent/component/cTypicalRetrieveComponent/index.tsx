@@ -115,6 +115,24 @@ const TypicalRetrieveComponent = (props: TypicalRetrieveComponentType) => {
                                         </li>
                                       ))}
 
+                                      {((eachValue.type === "nested-list" && (
+                                        <React.Fragment>
+                                          <li className="flex flex-col gap-1 items-start justify-between">
+                                            <span className="text-muted-foreground">
+                                              {eachValue.label}:
+                                            </span>
+                                            {eachValue?.value?.map((eachField: any, _indexField: any) => (
+                                              <li className="flex flex-col gap-1 items-start justify-between" key={indexValue} >
+                                                <span>
+                                                  {eachField?.name} - <span className="text-muted-foreground" >{eachField?.values?.join(", ")}</span>
+                                                </span>
+                                                {/* <span>{eachValue.value || "--N/A--"}</span> */}
+                                              </li>
+                                            ))}
+                                          </li>
+                                        </React.Fragment>
+                                      ) ))}
+
                                       {((eachValue.type === "special-checkbox" &&
                                         <React.Fragment>
                                           <li className="flex flex-col items-start justify-between">
